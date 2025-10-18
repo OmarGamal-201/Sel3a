@@ -1,0 +1,144 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding-top: 80px;
+  background-color: #f2f2f2;
+  color: #333;
+}
+
+
+.main-header {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: #800020; 
+  color: #fff;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  z-index: 100;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+
+.page-icon {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+}
+
+.page-icon i {
+  font-size: 24px;
+}
+
+
+.content-section {
+  padding: 30px 20px;
+}
+
+.item-card {
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  gap: 15px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.item-card img {
+  width: 100px;
+  height: auto;
+  border-radius: 6px;
+}
+
+.item-info h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #800020;
+}
+
+.item-info p {
+  margin: 5px 0;
+}
+
+.action-btn, .checkout-btn {
+  background-color: #800020;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.action-btn:hover, .checkout-btn:hover {
+  background-color: #a52a2a;
+}
+
+
+.checkout-box {
+  text-align: right;
+  margin-top: 20px;
+}
+
+/* Media Queries */
+@media (max-width: 600px) {
+  .main-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
+  }
+
+  .page-icon {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .item-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .item-card img {
+    width: 80%;
+  }
+}
+.remove-fav-btn {
+   background-color: #800020;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.remove-fav-btn:hover {
+    background-color: #a52a2a;
+}
+.toast-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #800020;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-size: 14px;
+  z-index: 999;
+}
