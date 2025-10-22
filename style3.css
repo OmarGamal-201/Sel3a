@@ -6,12 +6,20 @@ body {
   color: #333;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
 .main-header {
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+<<<<<<< HEAD
   background-color: #800020;
+=======
+  background-color: #800020; 
+>>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
   color: #fff;
   padding: 20px 30px;
   display: flex;
@@ -39,6 +47,10 @@ body {
   font-size: 24px;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
 .content-section {
   padding: 30px 20px;
 }
@@ -85,11 +97,19 @@ body {
   background-color: #a52a2a;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
 .checkout-box {
   text-align: right;
   margin-top: 20px;
 }
 
+<<<<<<< HEAD
+=======
+/* Media Queries */
+>>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
 @media (max-width: 600px) {
   .main-header {
     flex-direction: column;
@@ -112,9 +132,14 @@ body {
     width: 80%;
   }
 }
+<<<<<<< HEAD
 
 .remove-fav-btn {
   background-color: #800020;
+=======
+.remove-fav-btn {
+   background-color: #800020;
+>>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
   color: #fff;
   border: none;
   padding: 8px 12px;
@@ -125,9 +150,14 @@ body {
 }
 
 .remove-fav-btn:hover {
+<<<<<<< HEAD
   background-color: #a52a2a;
 }
 
+=======
+    background-color: #a52a2a;
+}
+>>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
 .toast-message {
   position: fixed;
   bottom: 20px;
@@ -139,6 +169,7 @@ body {
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   font-size: 14px;
   z-index: 999;
+<<<<<<< HEAD
 }
 /**/
 
@@ -248,4 +279,6 @@ body {
     width: 100%;
     margin-top: 10px;
   }
+=======
+>>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
 }

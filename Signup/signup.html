@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-Up</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <div class="container d-flex justify-content-center align-items-center">
+        <div class="sign-up w-100 p-4 m-3" style="max-width: 500px;">
+            <form action="">
+                <h3 class="text-center">Sign Up</h3>
+                <div class="mb-3">
+                    <label for="fname" class="form-label">First Name</label>
+                    <input id="fname" class="form-control" name="fname" type="text" placeholder="First Name">
+                </div>
+                <div class="mb-3">
+                    <label for=lname" class="form-label">Last Name</label>
+                    <input id="lname" class="form-control" name="lname" type="text" placeholder="Last Name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="regemail" class="form-label">Email</label>
+                    <input id="regemail" class="form-control" name="email" type="email" placeholder="Enter your Email" required>
+                    <span id="email-wrong" class="error"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="gender" class="form-label">Gender</label>
+                    <select name="gender" id="gender" class="w-100 p-2 form-control">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input id="phone" class="form-control" name="confemail" type="tel" placeholder="+20 1234567890" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input id="address" class="form-control" name="address" type="text" placeholder="address" required>
+                </div>
+                <div class="mb-3">
+                    <label for="regpass" class="form-label">Password</label>
+                    <input type="password" class="form-control" name="regpass" id="loginpass"
+                        placeholder="Enter your Password" required>
+                    <span id="pass-wrong" class="error"></span>
+                </div>
+                <div class="mb-3">
+                    <label for="confirmregpass" class="form-label">Confirm Password</label>
+                    <input type="password" class="form-control" name="confirmregpass" id="confirmregpass"
+                        placeholder="Enter your Password" required>
+                    <span id="pass-wrong" class="error"></span>
+                </div>
+                <div class="mb-3">
+                    <input type="file" name="" id="" hidden>
+                </div>
+                <button class="btn btn-primary bt w-100 mb-3" type="submit">Sign Up</button>
+                <div class="mb-3">
+                    already have acount? <a href="../Login/login.html">Log In</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

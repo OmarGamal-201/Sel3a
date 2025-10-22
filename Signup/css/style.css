@@ -1,0 +1,27 @@
+:root{
+    --mainColor:#3ABEF9;
+    --secondaryColor:#F14A00;
+    --backColor:#e4e4e4;
+}
+body {
+    background-color: var(--backColor);
+}
+.sign-up {
+    border: 2px solid var(--mainColor);
+    border-radius: 5%;
+    background-color: #fefcfc;
+}
+.sign-up h3{
+    color: var(--mainColor);
+    font-weight: bolder;
+}
+.form-control {
+    border-color: var(--mainColor);
+}
+.form-control:focus{
+box-shadow: 0 0 0 .25rem rgb(58, 190, 249,0.25);
+}
+.bt {
+    background-color: var(--mainColor);
+    border-color: var(--mainColor);
+}
