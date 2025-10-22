@@ -13,11 +13,6 @@ document.querySelectorAll('.remove-fav-btn').forEach(function(button) {
   });
 });
 
-<<<<<<< HEAD
-document.querySelectorAll('.action-btn').forEach(function(button) {
-  button.addEventListener('click', function() {
-    showToast('🛒 تم إضافة المنتج إلى العربة');
-=======
 document.querySelectorAll('.cart-item .action-btn').forEach(function(button) {
   button.addEventListener('click', function() {
     const item = button.closest('.cart-item');
@@ -26,7 +21,6 @@ document.querySelectorAll('.cart-item .action-btn').forEach(function(button) {
       item.remove();
       showToast('🛒 تم حذف المنتج من العربة');
     }
->>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
   });
 });
 
@@ -37,15 +31,12 @@ if (checkoutButton) {
   });
 }
 
-<<<<<<< HEAD
 document.querySelectorAll('.checkout-single-btn').forEach(function(button) {
   button.addEventListener('click', function() {
     showToast('✅ تم شراء هذا المنتج بنجاح!');
   });
 });
 
-=======
->>>>>>> 15f20fe8fae1aea45ef0c121882cc0e061d41a9a
 function updateFavCount() {
   const count = document.querySelectorAll('.item-card .remove-fav-btn').length;
   const counter = document.getElementById('fav-count');
