@@ -1,0 +1,69 @@
+document.addEventListener('DOMContentLoaded', function () {
+    // Setup hamburger menu
+    createNav();
+    setupHamburgerMenu();
+    createFooter();
+});
+
+//create NavBar
+function createNav() {
+    const nav = document.querySelector('nav');
+    nav.innerHTML=`<!-- Navigation -->
+    <div class="nav-container">
+    <div class="logo-section">
+    <img src="./logo2.jpg" alt="sel3a Logo" class="logo-img">
+                <div class="logo-text">SEL3A</div>
+            </div>
+            <!-- Hamburger Menu Icon -->
+            <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+            <li><a href="./home.html">Home</a></li>
+            <li><a href="../About/about.html">About</a></li>
+            <li><a href="#menu">products</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="../cart/cart.html">Cart (0)</a></li>
+                <li><a href="#service">Customer Service</a></li>
+            </ul>
+        </div>`
+}
+
+//Create Footer
+function createFooter() {
+    const footer = document.querySelector('footer');
+    footer.innerHTML = `<div class="footer-logo">
+    <img src="./logo2.jpg" alt="sel3a Logo" class="footer-logo-img">
+    <h3>SEL3A</h3>
+    </div>
+    <div class="social-links">
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-snapchat"></i></a>
+    </div>
+    <p class="copyright">© 2025 Sel3a Website. All Rights Reserved.</p>`
+}
+// Function to setup hamburger menu
+function setupHamburgerMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const navMenu = document.getElementById('nav-menu');
+
+    if (hamburger && navMenu) {
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                hamburger.classList.remove('active');
+            });
+        });
+    }
+}

@@ -1,6 +1,16 @@
-:root{
-    --mainColor:#3ABEF9;
+:root {
+    --mainColor: #3ABEF9;
+    --primary: #36d4e9;
+    --light-bg: #F5F5DC; /* Beige */
+    --dark-text: #333;
+    --light-text: #fff;
+    --secondary: #ff6b6b;
 }
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+
 .pdata {
     padding-left: 15px;
 }
@@ -21,63 +31,51 @@
     position: relative;
     display: flex;
     height: 420px;
-    overflow-x:scroll;
-    overflow-y:hidden;
+    overflow-x: scroll;
+    /* overflow-y: hidden; */
     padding: 10px 60px 30px 40px;
     scroll-behavior: smooth;
     gap: 20px;
 }
+
 .card {
     height: 200px;
     flex-shrink: 0;
 }
-/* .related-container::after {
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: aqua;
-    top: calc(50% - 25px);
-    left: calc(100% - 50px);
-}
-.related-container::before {
-    content: '';
-    position: absolute;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background-color: aqua;
-    top: calc(50% - 25px);
-    left: 0;
-    z-index: 2;
-} */
-.moving-btns .rt ,.lt {
+
+.moving-btns .rt,
+.lt {
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    background-color:var(--mainColor);
+    background-color: var(--mainColor);
     text-align: center;
     position: absolute;
     border: 0;
 }
-.moving-btns i{
+
+.moving-btns i {
     color: white;
     font-size: 30px;
 }
-.cont-rel{
+
+.cont-rel {
     position: relative;
 }
+
 .rt {
     position: absolute;
     top: calc(50% - 25px);
     left: 100%;
 }
+
 .lt {
     position: absolute;
     top: calc(50% - 25px);
     left: 0;
 }
+
 .related-container::-webkit-scrollbar {
-  display: none; /* Chrome, Edge, Safari */
+    display: none;
+    /* Chrome, Edge, Safari */
 }

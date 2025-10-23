@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Username - Sel3a</title>
+    <!-- <link rel="stylesheet" href="./profile.css"> -->
+    <link rel="stylesheet" href="./bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body{ 
+    margin: 0;
+    background-color: #c9c9c9;
+    font-family: Arial, sans-serif;
+}
+.card {
+    width: 110%;
+    max-width: 1500px; 
+    display: flex;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    flex-wrap: wrap;
+    margin: 50px auto;
+    /* min-height: 400px; */
+    height: 650px;
+}
+.cardleft{
+    width: 100%;
+    max-width: 300px;
+    background-color: #F14A00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+img{
+    width:120px;
+    height: 120px;
+    margin-top:  -90px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-Shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+.cardleft .username{
+    color: black;
+    font-Size: 20px;
+    margin-Top: 40px;
+}
+.rightCard{
+    padding: 30px;
+    box-sizing: border-box;
+    background-color: #fff; 
+}
+.info{
+    font-Size: 24px;
+    margin-Bottom: 10px;
+}
+/* .line, 
+.line2{
+    max-width: 500px;
+     width: 500px; 
+     margin-bottom: 20px; 
+    margin-top: 28px;
+    font-weight: bold;
+    font-size: 24px;
+} */
+.line,
+.line2 {
+  width: 130%;
+  max-width: 500px;
+  height: 2px;
+  background-color: #ddd;
+  border: none;
+  margin: 30px auto;
+}
+.icon{
+    color: #333;
+    font-size: 20px;
+    margin-top: 70px;
+    cursor: pointer;
+}
+.cardcenter{
+display: flex;
+gap: 220px;
+/* height: 200px; */
+flex-wrap: wrap;
+height: auto;
+}
+.email,
+.phone{
+    font-Size: 24px;
+    margin-Bottom: 10px;
+    font-weight: bold;
+    margin-top: 28px;
+}
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+  }
+  .cardleft, .rightCard {
+    max-width: 100%;
+  }
+  .cardcenter {
+    gap: 40px;
+    justify-content: center;
+  }
+  .line, .line2{
+    width: 100%;
+  }
+}
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="cardleft">
+            <img src="./1.jpg" alt="User profile picture" id="profileImage">
+            <input type="file" id="imageUpload"  style="display: none;">
+            <div class="username">username</div>
+            <div class="icon" id="editIcon">
+                <i class="fa-regular fa-pen-to-square"></i>
+            </div>
+            <!-- <input type="file">
+            <img src="./1.png" alt="">
+            <div class="username">username</div>
+            <div class="icon"><i class="fa-regular fa-pen-to-square"></i></div> -->
+        </div>
+        <div class="rightCard">
+            <div class="info">Information</div>
+            <hr class="line">
+            <div class="cardcenter">
+                <div class="email">Email</div>
+                <div class="phone">Phone</div>
+            </div>
+            <hr class="line2">
+        </div>
+
+            
+    </div>
+    <script>
+        document.getElementById('editIcon').addEventListener('click', () => {
+  document.getElementById('imageUpload').click();
+});
+
+document.getElementById('imageUpload').addEventListener('change', function () {
+  const file = this.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      document.getElementById('profileImage').src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  }
+});
+    </script>
+<script src="./bootstrap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

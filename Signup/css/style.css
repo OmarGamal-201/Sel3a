@@ -1,26 +1,38 @@
-:root{
-    --mainColor:#3ABEF9;
-    --secondaryColor:#F14A00;
-    --backColor:#e4e4e4;
+:root {
+    --mainColor: #3ABEF9;
+    --secondaryColor: #F14A00;
+    --backColor: #e4e4e4;
+    --primary: #36d4e9;
+    --light-bg: #F5F5DC;
+    /* Beige */
+    --dark-text: #333;
+    --light-text: #fff;
+    --secondary: #ff6b6b;
 }
+
 body {
     background-color: var(--backColor);
 }
+
 .sign-up {
     border: 2px solid var(--mainColor);
     border-radius: 5%;
     background-color: #fefcfc;
 }
-.sign-up h3{
+
+.sign-up h3 {
     color: var(--mainColor);
     font-weight: bolder;
 }
+
 .form-control {
     border-color: var(--mainColor);
 }
-.form-control:focus{
-box-shadow: 0 0 0 .25rem rgb(58, 190, 249,0.25);
+
+.form-control:focus {
+    box-shadow: 0 0 0 .25rem rgb(58, 190, 249, 0.25);
 }
+
 .bt {
     background-color: var(--mainColor);
     border-color: var(--mainColor);
