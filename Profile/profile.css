@@ -1,0 +1,33 @@
+.cardcenter {
+    display: flex;
+    gap: 700px; 
+    flex-wrap: wrap;
+    margin-top: 50px;
+}
+
+.email, .phone {
+    display: flex;
+    flex-direction: column; 
+}
+
+.email div:first-child,
+.phone div:first-child {
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.email div:last-child,
+.phone div:last-child {
+    color: #000;
+    font-size: 20px;
+}
+
+#lin{
+    width: 110%;
+    max-width: 1000px;
+    height: 2px;
+    background-color: #ddd;
+    margin: 60px 80px;
+}
