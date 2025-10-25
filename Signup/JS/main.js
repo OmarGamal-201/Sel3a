@@ -1,3 +1,4 @@
+
 const frm = createSignUpForm();
 document.addEventListener('DOMContentLoaded', function () {
     // ===== Create Form =====
@@ -223,33 +224,42 @@ document.addEventListener('DOMContentLoaded', function () {
     if (container) container.appendChild(frm);
 
     /////////////////////////
-    
-    // ===== Form Submission Handler =====
-    frm.addEventListener('submit', function (e) {
-        // e.preventDefault();
-    
-        // Check if passwords match
-        if (passinp.value !== confpassinp.value) {
-            alert('Passwords do not match!');
-            return;
-        }
-    
-        // Collect form data
-        const formData = {
-            firstName: fnameinp.value,
-            lastName: snameinp.value,
-            email: regEmailinp.value,
-            gender: selectGender.value,
-            phone: phoneinp.value,
-            address: addressinp.value,
-            password: passinp.value
-        };
-    
-        console.log('Sign up data:', formData);
-    
-        // Add your registration logic here
-        alert('Sign up successful!');
-    });
+
+    var id = 0;
+// ===== Form Submission Handler =====
+frm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Check if passwords match
+    if (passinp.value !== confpassinp.value) {
+        alert('Passwords do not match!');
+        return;
+    }
+
+    // Collect form data
+    const user = {
+        ID: id,
+        firstName: fnameinp.value,
+        lastName: snameinp.value,
+        email: regEmailinp.value,
+        gender: selectGender.value,
+        phone: phoneinp.value,
+        address: addressinp.value,
+        password: passinp.value
+    };
+    id++;
+    // Get existing users or initialize empty array
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    users.push(user);
+    localStorage.setItem('users', JSON.stringify(users));
+
+    alert('Sign up successful!');
+    frm.reset();
+    console.log('Sign up data:', user);
+
+    // Add your registration logic here
+    alert('Sign up successful!');
+});
 
 })
 

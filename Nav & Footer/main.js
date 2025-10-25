@@ -1,3 +1,6 @@
+const cUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
+const uname = cUser.firstName;
+console.log(uname);
 document.addEventListener('DOMContentLoaded', function () {
     // Setup hamburger menu
     createNav();
@@ -8,10 +11,10 @@ document.addEventListener('DOMContentLoaded', function () {
 //create NavBar
 function createNav() {
     const nav = document.querySelector('nav');
-    nav.innerHTML=`<!-- Navigation -->
+    nav.innerHTML = `<!-- Navigation -->
     <div class="nav-container">
     <div class="logo-section">
-    <img src="./logo2.jpg" alt="sel3a Logo" class="logo-img">
+    <img src="" alt="sel3a Logo" class="logo-img">
                 <div class="logo-text">SEL3A</div>
             </div>
             <!-- Hamburger Menu Icon -->
@@ -24,10 +27,10 @@ function createNav() {
             <li><a href="./home.html">Home</a></li>
             <li><a href="../About/about.html">About</a></li>
             <li><a href="#menu">products</a></li>
-                <li><a href="#gallery">Gallery</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li><a href="../cart/cart.html">Cart (0)</a></li>
-                <li><a href="#service">Customer Service</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="../cart/cart.html">Cart (0)</a></li>
+            <li><a href="#service">Customer Service</a></li>
+            <li><a href="./../Profile/profile.html">Hi, ${uname}</a></li>
             </ul>
         </div>`
 }
@@ -36,7 +39,7 @@ function createNav() {
 function createFooter() {
     const footer = document.querySelector('footer');
     footer.innerHTML = `<div class="footer-logo">
-    <img src="./logo2.jpg" alt="sel3a Logo" class="footer-logo-img">
+    <img src="" alt="sel3a Logo" class="footer-logo-img">
     <h3>SEL3A</h3>
     </div>
     <div class="social-links">
