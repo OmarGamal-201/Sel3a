@@ -1,103 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
-    <body>
-        <button class="menu-toggle" id="menu-toggle">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+    <button class="menu-toggle" id="menu-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
     <div class="menu">
         <ul>
             <li class="profile">
                 <div class="img-box">
-                        <img src="./image/OIP.webp" alt="profile">
+                    <img src="./image/OIP.webp" alt="profile">
                 </div>
                 <h2>name profile</h2>
             </li>
-            <li>
-                <a href="#" class="active">
-                    <i class="fas fa-home"></i>
+            <li><a href="#" class="active"><i class="fas fa-home"></i>
                     <p>dashboard</p>
-                </a>
-            </li>
-            <li>
-            <a href="#">
-                <i class="fa-solid fa-box"></i>
-                <p>products</p>
-            </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-basket-shopping"></i>
+                </a></li>
+            <li><a href="#"><i class="fa-solid fa-box"></i>
+                    <p>products</p>
+                </a></li>
+            <li><a href="#"><i class="fa-solid fa-basket-shopping"></i>
                     <p>Orders</p>
-                </a>
-            </li>
-            <li>
-            <a href="#">
-                <i class="fa-solid fa-user"></i>
-                <p>Users</p>
-            </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fas fa-cog"></i>
+                </a></li>
+            <li><a href="#"><i class="fa-solid fa-user"></i>
+                    <p>Users</p>
+                </a></li>
+            <li><a href="#"><i class="fas fa-cog"></i>
                     <p>setting</p>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="log-out">
-                    <i class="fas fa-sign-out"></i>
+                </a></li>
+            <li><a href="#" class="log-out"><i class="fas fa-sign-out"></i>
                     <p>Log Out</p>
-                </a>
-            </li>
+                </a></li>
         </ul>
     </div>
-    <!-- -------------------------------------------------------------------- -->
-     <div class="content">
+
+    <div class="content">
         <div class="title-info">
             <p class="title-info-p">dashboard</p>
             <button id="mode-toggle">
                 <i class="fa-solid fa-moon"></i>
             </button>
             <div class="data-info">
-                <div class="box">
-                    <i class="fa-solid fa-box"></i>
+                <div class="box"><i class="fa-solid fa-box"></i>
                     <div class="data">
-                        <p>Products</p>
-                        <span>100</span>
+                        <p>Products</p><span>100</span>
                     </div>
                 </div>
-                <div class="box">
-                    
-                    <i class="fa-solid fa-basket-shopping"></i>
+                <div class="box"><i class="fa-solid fa-basket-shopping"></i>
                     <div class="data">
-                        <p>Orders</p>
-                        <span>100</span>
+                        <p>Orders</p><span>100</span>
                     </div>
                 </div>
-                <div class="box">
-                    <i class="fa-solid fa-user"></i>
+                <div class="box"><i class="fa-solid fa-user"></i>
                     <div class="data">
-                        <p>Users</p>
-                        <span>100</span>
+                        <p class="sign-in">Users</p><span class="count">0</span>
                     </div>
                 </div>
-                <div class="box">
-                    <i class="fa-solid fa-chart-column"></i>
+                <div class="box"><i class="fa-solid fa-chart-column"></i>
                     <div class="data">
-                        <p>Revenue</p>
-                        <span>100</span>
+                        <p>Revenue</p><span>100</span>
                     </div>
                 </div>
             </div>
+            <button id="addProductBtn">إضافة منتج جديد</button>
         </div>
+
         <div class="table-container">
             <div class="search-box">
                 <input type="text" id="searchInput" placeholder="ابحث عن منتج... 🔍">
@@ -111,79 +87,46 @@
                         <th>Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                    
-                    <tr>
-                        <td >
-                            <span class="image-table"><img src="./image/81e77237f75c438083efe1b19b9084d2.jpg" alt=""></span>
-                        </td>
-                        <td><span class="name-price"> Price</span></td>
-                        <td><span class="price">$999</span></td>
-                        <td><i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash-can"></i></td>
-    
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="image-table"><img src="./image/81e77237f75c438083efe1b19b9084d2.jpg" alt=""></span>
-                        </td>
-                        <td><span class="name-price">name Price</span></td>
-                        <td><span class="price">$999</span></td>
-                                            <td> <i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash-can"></i></td>
-
-                    
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="image-table"><img src="./image/81e77237f75c438083efe1b19b9084d2.jpg" alt=""></span>
-                        </td>
-                        <td><span class="name-price">name Price</span></td>
-                        <td><span class="price">$999</span></td>
-                                                <td><i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash-can"></i></td>
-
-                    
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="image-table"><img src="./image/81e77237f75c438083efe1b19b9084d2.jpg" alt=""></span>
-                        </td>
-                        <td><span class="name-price">name Price</span></td>
-                        <td><span class="price">$999</span></td>
-                                                <td><i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash-can"></i></td>
-
-                    
-                    </tr>
-                    <tr>
-                        <td>
-                            <span class="image-table"><img src="./image/81e77237f75c438083efe1b19b9084d2.jpg" alt=""></span>
-                        </td>
-                        <td><span class="name-price">name Price</span></td>
-                        <td><span class="price">$999</span></td>
-                                                <td><i class="fa-solid fa-pencil"></i><i class="fa-solid fa-trash-can"></i></td>
-
-                    
-                    </tr>
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
-     </div>
-<div id="editModal" class="modal">
-    <div class="modal-content">
-        <h2>تعديل المنتج</h2>
-        <label>اسم المنتج</label>
-        <input type="text" id="editName" placeholder="اكتب اسم المنتج" />
+    </div>
 
-        <label>السعر</label>
-        <input type="text" id="editPrice" placeholder="اكتب السعر" />
-
-        <label>رابط الصورة</label>
-        <input type="text" id="editImage" placeholder="رابط الصورة" />
-
-        <div class="buttons">
-            <button id="saveEdit">حفظ</button>
-            <button id="cancelEdit">إلغاء</button>
+    <!-- مودال التعديل -->
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2>تعديل المنتج</h2>
+            <label>اسم المنتج</label>
+            <input type="text" id="editName" placeholder="اكتب اسم المنتج" />
+            <label>السعر</label>
+            <input type="text" id="editPrice" placeholder="اكتب السعر" />
+            <label>رابط الصورة</label>
+            <input type="text" id="editImage" placeholder="رابط الصورة" />
+            <div class="buttons">
+                <button id="saveEdit">حفظ</button>
+                <button id="cancelEdit">إلغاء</button>
+            </div>
         </div>
     </div>
-</div>
-     <script src="./index.js"></script>
+
+    <!-- مودال الإضافة -->
+    <div id="addModal" class="modal">
+        <div class="modal-content">
+            <h2>إضافة منتج جديد</h2>
+            <label>اسم المنتج</label>
+            <input type="text" id="addName" placeholder="اكتب اسم المنتج" />
+            <label>السعر</label>
+            <input type="text" id="addPrice" placeholder="اكتب السعر" />
+            <label>رابط الصورة</label>
+            <input type="text" id="addImage" placeholder="رابط الصورة" />
+            <div class="buttons">
+                <button id="saveAdd">إضافة</button>
+                <button id="cancelAdd">إلغاء</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
 </body>
+
 </html>

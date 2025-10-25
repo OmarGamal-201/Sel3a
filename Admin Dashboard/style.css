@@ -159,7 +159,7 @@ table {
 
     border-collapse: collapse;
     width: 100%;
-    /* border-spacing: 8px; */
+   
 }
 
 
@@ -229,7 +229,6 @@ body.dark-mode {
     transition:  0.4s ease, color 0.4s ease;
 }
 
-/* الكروت - sections - divs عامة */
 body.dark-mode .card,
 body.dark-mode section,
 body.dark-mode .title-info,
@@ -272,8 +271,6 @@ body.dark-mode a {
 body.dark-mode a:hover {
     color: #eee;
 }
-
-
 body.dark-mode .menu {
     background-color: #121212;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
@@ -287,7 +284,6 @@ body.dark-mode .menu ul li a {
 body.dark-mode .menu ul li a:hover,
 body.dark-mode .menu ul li a.active {
     background-color: #1f1f1f;
-    /* color: #4da3ff; */
 }
 
 
@@ -325,53 +321,6 @@ body table i:hover {
 }
 
 
-@keyframes slideInLeft {
-    0% {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeUp {
-    0% {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-
-    100% {
-        opacity: 1;
-    }
-}
-
-.menu {
-    animation: slideInLeft 0.8s ease-out forwards;
-}
-
-.data-info .box {
-    opacity: 0;
-    animation: fadeUp 0.6s ease-out forwards;
-}
-
-.table-container {
-    opacity: 0;
-    animation: fadeIn 1s ease-in forwards;
-}
 
 
 .search-box {
@@ -453,36 +402,6 @@ background-color: #c9c0c0;
     border-radius: 8px;
     cursor: pointer;
     z-index: 1001;
-}
-
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-    }
-
-    .menu {
-        position: fixed;
-        left: -260px;
-        top: 0;
-        height: 100vh;
-        width: 220px;
-        transition: left 0.4s ease;
-        z-index: 1000;
-    }
-
-    .menu.active {
-        left: 0;
-    }
-
-    .content {
-        width: 100%;
-       
-        transition: filter 0.4s ease;
-    }
-
-    .menu-toggle {
-        display: block;
-    }
 }
 
 @media (max-width: 768px) {
@@ -645,15 +564,12 @@ background-color: #c9c0c0;
 #cancelEdit:hover {
     background-color: #666;
 }
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: scale(0.9);
-    }
-
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
+#addProductBtn {
+  width: 80px;
+  height: 40px;
+    background-color: #00ffff;
+    border-radius: 80px;
+    cursor: pointer;
 }
+
+
