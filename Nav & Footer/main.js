@@ -1,6 +1,7 @@
 const cUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
-const uname = cUser.firstName;
+const uname = cUser.firstName || 'Guest';
 console.log(uname);
+
 document.addEventListener('DOMContentLoaded', function () {
     // Setup hamburger menu
     createNav();
