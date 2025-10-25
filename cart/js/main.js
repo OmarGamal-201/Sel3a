@@ -1,6 +1,4 @@
-
-// اللى عملته: حذف عنصر – تأكيد قبل الحذف – عداد – رسالة تأكيد – بحث
-
+// حذف منتج من المفضلة بعد تأكيد المستخدم
 document.querySelectorAll('.remove-fav-btn').forEach(function(button) {
   button.addEventListener('click', function() {
     const item = button.closest('.item-card');
@@ -13,6 +11,7 @@ document.querySelectorAll('.remove-fav-btn').forEach(function(button) {
   });
 });
 
+// حذف منتج من العربة بعد تأكيد المستخدم
 document.querySelectorAll('.cart-item .action-btn').forEach(function(button) {
   button.addEventListener('click', function() {
     const item = button.closest('.cart-item');
@@ -24,6 +23,7 @@ document.querySelectorAll('.cart-item .action-btn').forEach(function(button) {
   });
 });
 
+// زر الشراء لجميع المنتجات
 const checkoutButton = document.querySelector('.checkout-btn');
 if (checkoutButton) {
   checkoutButton.addEventListener('click', function() {
@@ -31,12 +31,14 @@ if (checkoutButton) {
   });
 }
 
+// زر شراء منتج واحد
 document.querySelectorAll('.checkout-single-btn').forEach(function(button) {
   button.addEventListener('click', function() {
     showToast('✅ تم شراء هذا المنتج بنجاح!');
   });
 });
 
+// تحديث عداد المفضلة
 function updateFavCount() {
   const count = document.querySelectorAll('.item-card .remove-fav-btn').length;
   const counter = document.getElementById('fav-count');
@@ -45,6 +47,7 @@ function updateFavCount() {
   }
 }
 
+// عرض رسالة مؤقتة (Toast)
 function showToast(message) {
   const toast = document.createElement('div');
   toast.textContent = message;
@@ -53,6 +56,7 @@ function showToast(message) {
   setTimeout(() => toast.remove(), 3000);
 }
 
+// البحث داخل المنتجات حسب العنوان
 const searchInput = document.getElementById('search');
 if (searchInput) {
   searchInput.addEventListener('input', function() {
@@ -61,8 +65,11 @@ if (searchInput) {
       const title = card.querySelector('h3').textContent.toLowerCase();
       card.style.display = title.includes(value) ? 'flex' : 'none';
     });
+
   });
 }
+
+// style
 function applyStyles() {
   document.body.style.fontFamily = "'Segoe UI', sans-serif";
   document.body.style.margin = "0";
