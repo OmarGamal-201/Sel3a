@@ -1,7 +1,7 @@
 :root {
     --mainColor: #3ABEF9;
     --primary: #36d4e9;
-    --light-bg: #F5F5DC; /* Beige */
+    --light-bg: #f4f4f4; /* gray */
     --dark-text: #333;
     --light-text: #fff;
     --secondary: #ff6b6b;
@@ -10,13 +10,17 @@
     font-family: 'Poppins', sans-serif;
 }
 
+body{
+    background-color: var(--light-bg);
+}
 
 .pdata {
     padding-left: 15px;
 }
 
 .pname,
-.seller-name,
+.brand-name,
+.category,
 .pprice,
 .pproparities,
 .pdecription {

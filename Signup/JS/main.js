@@ -20,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function () {
     fnameinp.setAttribute('name', 'fname');
     fnameinp.setAttribute('type', 'text');
     fnameinp.setAttribute('placeholder', 'Enter Your First Name');
+    fnameinp.setAttribute('required', '')
 
     // ===== Adding input and label to container =====
     fnamecont.appendChild(fnamelbl);
@@ -44,6 +45,7 @@ document.addEventListener('DOMContentLoaded', function () {
     snameinp.setAttribute('name', 'sname');
     snameinp.setAttribute('type', 'text');
     snameinp.setAttribute('placeholder', 'Enter Your Second Name');
+    snameinp.setAttribute('required', '');
 
     // ===== Adding input and label to container =====
     snamecont.appendChild(snamelbl);
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
     regEmailinp.setAttribute('name', 'email');
     regEmailinp.setAttribute('type', 'email');
     regEmailinp.setAttribute('placeholder', 'Enter Your Email');
+    regEmailinp.setAttribute('required', '');
 
     // ===== Adding input and label to container =====
     regemailcont.appendChild(regEmaillbl);
@@ -124,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function () {
     phoneinp.setAttribute('name', 'phone');
     phoneinp.setAttribute('type', 'tel');
     phoneinp.setAttribute('placeholder', '+20 1234567890');
+    phoneinp.setAttribute('required', '');
 
     // ===== Adding input and label to container =====
     phoneCont.appendChild(phonelbl);
@@ -148,6 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addressinp.setAttribute('name', 'address');
     addressinp.setAttribute('type', 'text');
     addressinp.setAttribute('placeholder', 'Address');
+    addressinp.setAttribute('required', '');
 
     // ===== Adding input and label to container =====
     addressCont.appendChild(addresslbl);
@@ -172,10 +177,19 @@ document.addEventListener('DOMContentLoaded', function () {
     passinp.setAttribute('name', 'regPass');
     passinp.setAttribute('type', 'password');
     passinp.setAttribute('placeholder', 'Enter Password');
+    passinp.setAttribute('required', '');
+
+
+    // ===pass error ====
+    let passError = document.createElement('div');
+    passError.classList.add('text-danger', 'small', 'mt-1');
+    passError.style.display = 'none';
+    passError.innerHTML = 'Password must be at least 8 characters';
 
     // ===== Adding input and label to container =====
     passCont.appendChild(passlbl);
     passCont.appendChild(passinp);
+    passCont.appendChild(passError);
     frm.appendChild(passCont);
 
     /////////////////////////////////
@@ -196,6 +210,7 @@ document.addEventListener('DOMContentLoaded', function () {
     confpassinp.setAttribute('name', 'confirmregpass');
     confpassinp.setAttribute('type', 'password');
     confpassinp.setAttribute('placeholder', 'Confirm Password');
+    confpassinp.setAttribute('required', '');
 
     // ===== Adding input and label to container =====
     confpassCont.appendChild(confpasslbl);
@@ -205,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //////////////////////////////////////
 
     let submition = document.createElement('button');
-    submition.classList.add('btn', 'btn-primary', 'bt', 'w-100', 'mb-3','sign-in');
+    submition.classList.add('btn', 'btn-primary', 'bt', 'w-100', 'mb-3', 'sign-in');
     submition.setAttribute('type', 'submit');
     submition.innerHTML = 'Sign Up';
     frm.appendChild(submition);
@@ -224,6 +239,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /////////////////////////
 
+    passinp.addEventListener('blur', function () {
+        if (passinp.value.length > 0 && passinp.value.length < 8) {
+            passError.style.display = 'block';
+            passinp.classList.add('is-invalid');
+        } else {
+            passError.style.display = 'none';
+            passinp.classList.remove('is-invalid');
+        }
+    });
+
+    passinp.addEventListener('input', function () {
+        if (passinp.value.length >= 8) {
+            passError.style.display = 'none';
+            passinp.classList.remove('is-invalid');
+        }
+    });
+
+
     // ===== Form Submission Handler =====
     // Replace your loadLocalData function and form submission with this:
     frm.addEventListener('submit', async function (e) {
@@ -235,9 +268,9 @@ document.addEventListener('DOMContentLoaded', function () {
             return;
         }
 
+
         // Get existing users from localStorage
         let users = JSON.parse(localStorage.getItem('users')) || [];
-
         // Generate new ID
         var newId = 0;
 
@@ -252,19 +285,34 @@ document.addEventListener('DOMContentLoaded', function () {
             address: addressinp.value,
             password: passinp.value
         };
+        let noErr = true;
+        let usedEmail = users.findIndex(user => user.email.toLowerCase() === regEmailinp.value.toLowerCase());
+        if (usedEmail !== -1) {
+            regEmailinp.value = '';
+            alert('Email is Used Before');
+            noErr = false;
+        }
+        if (passinp.value.length < 8) {
+            passinp.value = '';
+            alert('Password must be 8 characters at least');
+            noErr = false;
+        }
         newId++;
         // Add new user to array
-        users.push(user);
+        if (noErr) {
+
+            users.push(user);
+            alert('Sign up successful!');
+            localStorage.setItem('users', JSON.stringify(users));
+            window.location.href = '../Login/login.html';
+            frm.reset();
+        }
 
         // Save back to localStorage
-        localStorage.setItem('users', JSON.stringify(users));
 
-        alert('Sign up successful!');
 
-        window.location.href = '../Login/login.html';
 
         // Clear form
-        frm.reset();
     });
 
 })

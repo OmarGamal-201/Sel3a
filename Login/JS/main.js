@@ -42,23 +42,23 @@ document.addEventListener('DOMContentLoaded', function () {
     logPass.appendChild(inpPass); // Fixed: was inpEmail
     frm.appendChild(logPass); // Fixed: was logEmail
 
-    // ===== Checkbox Button =====
-    let rememberBox = createFormElement();
-    let inpCheck = document.createElement('input');
-    inpCheck.classList.add('form-check-input', 'me-2');
-    inpCheck.setAttribute('type', 'checkbox');
-    inpCheck.setAttribute('name', 'remember-me');
-    inpCheck.setAttribute('id', 'remember-me');
-    inpCheck.setAttribute('checked', '');
+    // // ===== Checkbox Button =====
+    // let rememberBox = createFormElement();
+    // let inpCheck = document.createElement('input');
+    // inpCheck.classList.add('form-check-input', 'me-2');
+    // inpCheck.setAttribute('type', 'checkbox');
+    // inpCheck.setAttribute('name', 'remember-me');
+    // inpCheck.setAttribute('id', 'remember-me');
+    // inpCheck.setAttribute('checked', '');
 
-    let rememberlbl = document.createElement('label');
-    rememberlbl.classList.add('form-label');
-    rememberlbl.setAttribute('for', 'remember-me');
-    rememberlbl.innerHTML = 'Remember Me'
+    // let rememberlbl = document.createElement('label');
+    // rememberlbl.classList.add('form-label');
+    // rememberlbl.setAttribute('for', 'remember-me');
+    // rememberlbl.innerHTML = 'Remember Me'
 
-    rememberBox.appendChild(inpCheck);
-    rememberBox.appendChild(rememberlbl);
-    frm.appendChild(rememberBox);
+    // rememberBox.appendChild(inpCheck);
+    // rememberBox.appendChild(rememberlbl);
+    // frm.appendChild(rememberBox);
 
 
     // ===== SUBMIT BUTTON =====

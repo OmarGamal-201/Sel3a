@@ -1,48 +1,75 @@
 // ✅ بيانات المنتجات
 const products = [
   {
-    title: "ساعة ذكية",
+    id: 1,
+    brandName: "Samsung",
+    name: "Smart Watch",
     price: "$45",
-    image: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80"
+    imgsrc: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=500&q=80",
+    description: "Advanced smart watch with AMOLED display and water resistance",
+    category: "Electronics"
   },
   {
-    title: "سماعة بلوتوث",
+    id: 2,
+    brandName: "Sony",
+    name: "Bluetooth Headphones",
     price: "$25",
-    image: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=500&q=80"
+    imgsrc: "https://images.unsplash.com/photo-1585386959984-a4155224a1ad?auto=format&fit=crop&w=500&q=80",
+    description: "High quality Bluetooth headphones with crystal clear sound",
+    category: "Electronics"
   },
   {
-    title: "نظارة شمس",
+    id: 3,
+    brandName: "Ray-Ban",
+    name: "Sunglasses",
     price: "$30",
-    image: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=500&q=80"
+    imgsrc: "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=500&q=80",
+    description: "Stylish sunglasses with UV protection",
+    category: "Accessories"
   },
   {
-    title: "حقيبة جلد",
+    id: 4,
+    brandName: "Gucci",
+    name: "Leather Bag",
     price: "$60",
-    image: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80"
+    imgsrc: "https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=500&q=80",
+    description: "Luxury leather bag with modern design",
+    category: "Bags"
   },
   {
-    title: "كاميرا رقمية",
+    id: 5,
+    brandName: "Canon",
+    name: "Digital Camera",
     price: "$120",
-    image: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80"
+    imgsrc: "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=500&q=80",
+    description: "Professional camera with high resolution",
+    category: "Electronics"
   },
   {
-    title: "حذاء رياضي",
+    id: 6,
+    brandName: "Nike",
+    name: "Sports Shoes",
     price: "$50",
-    image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80"
+    imgsrc: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=500&q=80",
+    description: "Comfortable sports shoes for running and workouts",
+    category: "Shoes"
   }
 ];
 
+// حفظ المنتجات في localStorage
+localStorage.setItem('products', JSON.stringify(products));
+
 document.addEventListener('DOMContentLoaded', function () {
   const container = document.getElementById("product-list");
-  products.forEach(product => {
-    const card = createProductCard(product);
+  products.forEach((product, index) => {
+    const card = createProductCard(product, index);
     container.appendChild(card);
   });
 
   setupProductFunctionality();
+  linkingProducts();
   updateCartCount();
   updateFavCount();
-  setupSearch();
   setupHamburgerMenu();
 });
 
@@ -53,7 +80,9 @@ function setupProductFunctionality() {
 
   // إضافة إلى العربة
   addToCartButtons.forEach(button => {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (e) {
+      e.stopPropagation(); // منع تفعيل click الخاص بالكارد
+      
       const card = this.closest('.item-card');
       const name = card.querySelector('h3').textContent;
       const price = parseFloat(card.querySelector('p strong').textContent.replace('$', ''));
@@ -70,7 +99,9 @@ function setupProductFunctionality() {
 
   // إضافة أو إزالة من المفضلة
   favoriteButtons.forEach(button => {
-    button.addEventListener('click', function () {
+    button.addEventListener('click', function (e) {
+      e.stopPropagation(); // منع تفعيل click الخاص بالكارد
+      
       const card = this.closest('.item-card');
       const name = card.querySelector('h3').textContent;
       const price = parseFloat(card.querySelector('p strong').textContent.replace('$', ''));
@@ -94,13 +125,6 @@ function setupProductFunctionality() {
       updateFavCount();
     });
   });
-
-  // زر الشراء الفردي
-  document.querySelectorAll('.checkout-single-btn').forEach(button => {
-    button.addEventListener('click', function () {
-      showToast('✅ تم شراء هذا المنتج بنجاح!');
-    });
-  });
 }
 
 //  تحديث عداد العربة
@@ -119,20 +143,6 @@ function updateFavCount() {
   if (countElement) {
     countElement.textContent = `(${favorites.length})`;
   }
-}
-
-//  وظيفة البحث
-function setupSearch() {
-  const searchInput = document.getElementById('search');
-  searchInput.addEventListener('input', function () {
-    const searchTerm = this.value.toLowerCase();
-    const products = document.querySelectorAll('#product-list .item-card');
-
-    products.forEach(product => {
-      const title = product.querySelector('h3').textContent.toLowerCase();
-      product.style.display = title.includes(searchTerm) ? 'flex' : 'none';
-    });
-  });
 }
 
 //  قائمة الهامبرجر
@@ -164,14 +174,16 @@ function showToast(message) {
 }
 
 //  إنشاء كارت منتج
-function createProductCard(product) {
+function createProductCard(product, index) {
   const card = document.createElement("div");
   card.className = "item-card";
+  card.dataset.productIndex = index; // حفظ index المنتج
+  card.style.cursor = "pointer"; // إظهار أن العنصر قابل للنقر
 
   card.innerHTML = `
-    <img src="${product.image}" alt="${product.title}" />
+    <img src="${product.imgsrc}" alt="${product.name}" />
     <div class="item-info">
-      <h3>${product.title}</h3>
+      <h3>${product.name}</h3>
       <p>السعر: <strong>${product.price}</strong></p>
       <button class="add-cart-btn">🛒 إضافة إلى العربة</button>
       <button class="fav-toggle-btn">❤️ إضافة للمفضلة</button>
@@ -179,4 +191,28 @@ function createProductCard(product) {
   `;
 
   return card;
+}
+
+// ربط المنتجات بصفحة التفاصيل
+function linkingProducts() {
+  const productCards = document.querySelectorAll('.item-card');
+  
+  productCards.forEach(card => {
+    card.addEventListener('click', function(e) {
+      // لا تنتقل إذا تم النقر على زر
+      if (e.target.tagName === 'BUTTON') {
+        return;
+      }
+      
+      // الحصول على index المنتج
+      const productIndex = parseInt(this.dataset.productIndex);
+      const selectedProduct = products[productIndex];
+      
+      // حفظ المنتج المختار
+      localStorage.setItem('selectedProduct', JSON.stringify(selectedProduct));
+      
+      // الانتقال لصفحة المنتج
+      window.location.href = '../product/product.html';
+    });
+  });
 }
