@@ -242,14 +242,14 @@ function applyStylesWithJS() {
     document.body.style.display = 'flex';
     document.body.style.flexDirection = 'column';
 
-    // تطبيق الأنماط على navigation
+    // تطبيق الأنماط على navigation - باستخدام الألوان المطلوبة
     const nav = document.querySelector('nav');
-    nav.style.backgroundColor = '#333';
+    nav.style.backgroundColor = '#36d4e9'; // --primary
     nav.style.position = 'sticky';
     nav.style.top = '0';
     nav.style.zIndex = '100';
     nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.2)';
-    nav.style.padding = '0 20px';
+    nav.style.padding = '3px 10px'; // ← قللنا من 5px إلى 3px
 
     const navContainer = document.querySelector('.nav-container');
     navContainer.style.display = 'flex';
@@ -259,44 +259,53 @@ function applyStylesWithJS() {
     navContainer.style.margin = '0 auto';
     navContainer.style.position = 'relative';
 
-    // تطبيق الأنماط على الشعار
+    // تطبيق الأنماط على الشعار - تأكد من أن اللوجو يظهر بجانب الاسم
+    const logoSection = document.querySelector('.logo-section');
+    logoSection.style.display = 'flex';
+    logoSection.style.alignItems = 'center';
+    logoSection.style.gap = '10px'; // ← مسافة بين اللوجو والنص
+
     const logoImg = document.querySelector('.logo-img');
-    logoImg.style.width = '50px';
-    logoImg.style.height = '50px';
-    logoImg.style.marginRight = '15px';
+    logoImg.style.width = '35px'; // ← قللنا الحجم
+    logoImg.style.height = '35px'; // ← قللنا الحجم
+    logoImg.style.marginRight = '0'; // ← أزلنا الهامش لأننا استخدمنا gap
     logoImg.style.borderRadius = '50%';
+    logoImg.style.objectFit = 'cover'; // ← لتجنب تشويه الصورة
 
     const logoText = document.querySelector('.logo-text');
-    logoText.style.color = '#F5F5DC';
-    logoText.style.fontSize = '1.8rem';
+    logoText.style.color = '#fff'; // --light-text
+    logoText.style.fontSize = '1.3rem'; // ← قللنا الحجم
     logoText.style.fontWeight = 'bold';
     logoText.style.fontFamily = 'Playfair Display, serif';
+    logoText.style.whiteSpace = 'nowrap'; // ← لمنع كسر النص
 
     // تطبيق الأنماط على قائمة التنقل
     const navMenu = document.querySelector('.nav-menu');
     navMenu.style.display = 'flex';
     navMenu.style.listStyle = 'none';
     navMenu.style.margin = '0';
+    navMenu.style.alignItems = 'center'; // ← محاذاة العناصر في المنتصف
 
     // تطبيق الأنماط على عناصر القائمة
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
-        link.style.color = '#fff';
+        link.style.color = '#fff'; // --light-text
         link.style.textDecoration = 'none';
-        link.style.padding = '20px 15px';
+        link.style.padding = '6px 8px'; // ← قللنا الحجم أكثر
         link.style.display = 'block';
         link.style.transition = 'all 0.3s';
-        link.style.fontSize = '1rem';
+        link.style.fontSize = '0.9rem'; // ← قللنا حجم الخط
+        link.style.borderRadius = '4px'; // ← زوايا مستديرة
 
         // إضافة تأثير hover
         link.addEventListener('mouseenter', function () {
-            this.style.backgroundColor = '#36d4e9';
-            this.style.color = '#35424a';
+            this.style.backgroundColor = '#fff'; // --light-text
+            this.style.color = '#36d4e9'; // --primary
         });
 
         link.addEventListener('mouseleave', function () {
             this.style.backgroundColor = 'transparent';
-            this.style.color = '#fff';
+            this.style.color = '#fff'; // --light-text
         });
     });
 
@@ -305,14 +314,14 @@ function applyStylesWithJS() {
     hamburger.style.display = 'none';
     hamburger.style.flexDirection = 'column';
     hamburger.style.cursor = 'pointer';
-    hamburger.style.padding = '5px';
+    hamburger.style.padding = '3px'; // ← قللنا الحجم
 
     const hamburgerSpans = document.querySelectorAll('.hamburger span');
     hamburgerSpans.forEach(span => {
-        span.style.width = '25px';
-        span.style.height = '3px';
-        span.style.backgroundColor = '#fff';
-        span.style.margin = '3px 0';
+        span.style.width = '20px'; // ← قللنا الحجم
+        span.style.height = '2px'; // ← قللنا الحجم
+        span.style.backgroundColor = '#fff'; // --light-text
+        span.style.margin = '2px 0'; // ← قللنا الهامش
         span.style.transition = '0.3s';
         span.style.borderRadius = '2px';
     });
@@ -398,10 +407,10 @@ function applyStylesWithJS() {
         });
     });
 
-    // تطبيق الأنماط على الفوتر
+    // تطبيق الأنماط على الفوتر - باستخدام الألوان المطلوبة
     const footer = document.querySelector('footer');
-    footer.style.backgroundColor = '#333';
-    footer.style.color = '#fff';
+    footer.style.backgroundColor = '#36d4e9'; // --primary
+    footer.style.color = '#fff'; // --light-text
     footer.style.textAlign = 'center';
     footer.style.padding = '30px';
     footer.style.marginTop = '60px';
@@ -411,36 +420,38 @@ function applyStylesWithJS() {
     footerLogo.style.justifyContent = 'center';
     footerLogo.style.alignItems = 'center';
     footerLogo.style.marginBottom = '15px';
+    footerLogo.style.gap = '10px'; // ← مسافة بين اللوجو والنص
 
     const footerLogoImg = document.querySelector('.footer-logo-img');
-    footerLogoImg.style.width = '50px';
-    footerLogoImg.style.height = '50px';
-    footerLogoImg.style.marginRight = '10px';
+    footerLogoImg.style.width = '40px'; // ← قللنا الحجم
+    footerLogoImg.style.height = '40px'; // ← قللنا الحجم
+    footerLogoImg.style.marginRight = '0'; // ← أزلنا الهامش
     footerLogoImg.style.borderRadius = '50%';
+    footerLogoImg.style.objectFit = 'cover'; // ← لتجنب تشويه الصورة
 
     const socialLinks = document.querySelector('.social-links');
     socialLinks.style.margin = '20px 0';
 
     const socialIcons = document.querySelectorAll('.social-links a');
     socialIcons.forEach(icon => {
-        icon.style.color = '#fff';
+        icon.style.color = '#fff'; // --light-text
         icon.style.margin = '0 10px';
         icon.style.fontSize = '1.5rem';
         icon.style.transition = 'color 0.3s';
 
         icon.addEventListener('mouseenter', function () {
-            this.style.color = '#36d4e9';
+            this.style.color = '#f4f4f4'; // --secondary
         });
 
         icon.addEventListener('mouseleave', function () {
-            this.style.color = '#fff';
+            this.style.color = '#fff'; // --light-text
         });
     });
 
     const copyright = document.querySelector('.copyright');
     copyright.style.marginTop = '15px';
     copyright.style.fontSize = '0.9rem';
-    copyright.style.color = '#aaa';
+    copyright.style.color = '#f4f4f4'; // --secondary
 }
 
 // التعامل مع التصميم المتجاوب
@@ -456,15 +467,15 @@ function handleResponsiveDesign() {
             // تصميم الهواتف
             hamburger.style.display = 'flex';
             navMenu.style.position = 'fixed';
-            navMenu.style.top = '70px';
+            navMenu.style.top = '60px'; // ← عدلنا الارتفاع ليناسب النافبار الصغير
             navMenu.style.right = '-100%';
             navMenu.style.flexDirection = 'column';
-            navMenu.style.backgroundColor = '#333';
+            navMenu.style.backgroundColor = '#36d4e9'; // --primary
             navMenu.style.width = '100%';
             navMenu.style.textAlign = 'center';
             navMenu.style.transition = '0.3s';
             navMenu.style.boxShadow = '0 10px 27px rgba(0, 0, 0, 0.05)';
-            navMenu.style.padding = '20px 0';
+            navMenu.style.padding = '15px 0'; // ← قللنا الحجم
 
             container.style.flexDirection = 'column';
             imageContent.style.position = 'static';
@@ -477,7 +488,7 @@ function handleResponsiveDesign() {
 
             const navLinks = document.querySelectorAll('.nav-menu a');
             navLinks.forEach(link => {
-                link.style.padding = '15px';
+                link.style.padding = '8px'; // ← استخدمنا نفس القيمة الصغيرة
                 link.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
             });
         } else {
@@ -493,7 +504,7 @@ function handleResponsiveDesign() {
             imageContent.style.position = 'sticky';
             imageContent.style.top = '100px';
 
-            // إعادة تعيين أنماط عناصر القائمة
+            // إعادة تعيين أنماط عناصر القائمة - استخدم القيم الصغيرة
             const navItems = document.querySelectorAll('.nav-menu li');
             navItems.forEach(item => {
                 item.style.width = 'auto';
@@ -501,7 +512,7 @@ function handleResponsiveDesign() {
 
             const navLinks = document.querySelectorAll('.nav-menu a');
             navLinks.forEach(link => {
-                link.style.padding = '20px 15px';
+                link.style.padding = '6px 8px'; // ← استخدمنا نفس القيمة الصغيرة
                 link.style.borderBottom = 'none';
             });
         }
@@ -512,35 +523,41 @@ function handleResponsiveDesign() {
     window.addEventListener('resize', updateLayout);
 }
 
-// إعداد القائمة الهامبرجر
+// إعداد القائمة الهامبرجر - نسخة محسنة
 function setupHamburgerMenu() {
-    const hamburger = document.getElementById('hamburger');
-    const navMenu = document.getElementById('nav-menu');
+    // استخدام setTimeout لضمان أن العناصر قد تم إنشاؤها
+    setTimeout(() => {
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
 
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function () {
-            navMenu.classList.toggle('active');
-            hamburger.classList.toggle('active');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function () {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
 
-            if (navMenu.classList.contains('active')) {
-                navMenu.style.right = '0';
-            } else {
-                navMenu.style.right = '-100%';
-            }
-        });
-
-        // إغلاق القائمة عند النقر على رابط
-        document.querySelectorAll('.nav-menu a').forEach(link => {
-            link.addEventListener('click', function () {
-                navMenu.classList.remove('active');
-                hamburger.classList.remove('active');
-                navMenu.style.right = '-100%';
+                if (navMenu.classList.contains('active')) {
+                    navMenu.style.right = '0';
+                } else {
+                    navMenu.style.right = '-100%';
+                }
             });
-        });
-    }
+
+            // إغلاق القائمة عند النقر على رابط
+            document.querySelectorAll('.nav-menu a').forEach(link => {
+                link.addEventListener('click', function () {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    navMenu.style.right = '-100%';
+                });
+            });
+        } else {
+            console.log('لم يتم العثور على عناصر الهامبرجر');
+        }
+    }, 100);
 }
+
 const images = [
-    'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80./',
+    'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80',
     'https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80',
     'https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80',
     'https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=600&q=80',
@@ -549,20 +566,26 @@ const images = [
 let currentImageIndex = 0;
 
 function changeImage() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-    document.getElementById('mainimage').src = images[currentImageIndex];
+    const mainImage = document.getElementById('mainimage');
+    if (mainImage) {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        mainImage.src = images[currentImageIndex];
+    }
 }
-
-// بدء التبديل التلقائي فوراً
-setInterval(changeImage, 3000);
 
 // تنفيذ جميع الدوال عند تحميل الصفحة
 document.addEventListener('DOMContentLoaded', function () {
     createPageStructure();
     applyStylesWithJS();
-    setupHamburgerMenu();
     handleResponsiveDesign();
+    setupHamburgerMenu(); // تم نقلها هنا بعد إنشاء جميع العناصر
+
+    // بدء التبديل التلقائي للصور
+    setInterval(changeImage, 3000);
 
     // تعيين الصورة الأولى فوراً
-    document.getElementById('mainimage').src = images[0];
+    const mainImage = document.getElementById('mainimage');
+    if (mainImage) {
+        mainImage.src = images[0];
+    }
 });
