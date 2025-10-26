@@ -73,7 +73,6 @@ if (searchInput) {
 function applyStyles() {
   document.body.style.fontFamily = "'Segoe UI', sans-serif";
   document.body.style.margin = "0";
-  document.body.style.paddingTop = "80px";
   document.body.style.backgroundColor = "#f2f2f2";
   document.body.style.color = "#333";
 

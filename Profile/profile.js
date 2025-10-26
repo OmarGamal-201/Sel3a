@@ -1,4 +1,4 @@
- document.body.style.margin = "0";
+document.body.style.margin = "0";
 document.body.style.backgroundColor = "#c9c9c9";
 document.body.style.fontFamily = "Arial, sans-serif";
 
@@ -16,7 +16,7 @@ card.style.height = "600px";
 let cardleft = document.querySelector(".cardleft");
 cardleft.style.width = "100%";
 cardleft.style.maxWidth = "300px";
-cardleft.style.backgroundColor = "#f14a00";
+cardleft.style.backgroundColor = "#474444ff";
 cardleft.style.display = "flex";
 cardleft.style.flexDirection = "column";
 cardleft.style.alignItems = "center";
@@ -41,13 +41,13 @@ imgInput.style.display = "none";
 
 let username = document.querySelector(".username");
 username.innerHTML = "Ahemd Hisham";
-username.style.color = "black";
+username.style.color = "white";
 username.style.fontSize = "20px";
 username.style.marginTop = "40px";
 
 let icon = document.querySelector(".icon");
 icon.innerHTML = `<i class="fa-regular fa-pen-to-square"></i>`;
-icon.style.color = "#333";
+icon.style.color = "white";
 icon.style.fontSize = "20px";
 icon.style.marginTop = "70px";
 icon.style.cursor = "pointer";

@@ -73,27 +73,9 @@ if (searchInput) {
 function applyStyles() {
   document.body.style.fontFamily = "'Segoe UI', sans-serif";
   document.body.style.margin = "0";
-  document.body.style.paddingTop = "80px";
   document.body.style.backgroundColor = "#f2f2f2";
   document.body.style.color = "#333";
 
-  const header = document.querySelector(".main-header");
-  if (header) {
-    Object.assign(header.style, {
-      position: "fixed",
-      top: "0",
-      right: "0",
-      left: "0",
-      backgroundColor: "#800020",
-      color: "#fff",
-      padding: "20px 30px",
-      display: "flex",
-      justifyContent: "space-between",
-      alignItems: "center",
-      boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
-      zIndex: "100"
-    });
-  }
 
   const logo = document.querySelector(".logo");
   if (logo) {

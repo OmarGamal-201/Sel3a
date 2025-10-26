@@ -1,4 +1,3 @@
-
 const frm = createSignUpForm();
 document.addEventListener('DOMContentLoaded', function () {
     // ===== Create Form =====
@@ -206,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //////////////////////////////////////
 
     let submition = document.createElement('button');
-    submition.classList.add('btn', 'btn-primary', 'bt', 'w-100', 'mb-3');
+    submition.classList.add('btn', 'btn-primary', 'bt', 'w-100', 'mb-3','sign-in');
     submition.setAttribute('type', 'submit');
     submition.innerHTML = 'Sign Up';
     frm.appendChild(submition);
@@ -225,41 +224,48 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /////////////////////////
 
-    var id = 0;
-// ===== Form Submission Handler =====
-frm.addEventListener('submit', function (e) {
-    e.preventDefault();
+    // ===== Form Submission Handler =====
+    // Replace your loadLocalData function and form submission with this:
+    frm.addEventListener('submit', async function (e) {
+        e.preventDefault();
 
-    // Check if passwords match
-    if (passinp.value !== confpassinp.value) {
-        alert('Passwords do not match!');
-        return;
-    }
+        // Check if passwords match
+        if (passinp.value !== confpassinp.value) {
+            alert('Passwords do not match!');
+            return;
+        }
 
-    // Collect form data
-    const user = {
-        ID: id,
-        firstName: fnameinp.value,
-        lastName: snameinp.value,
-        email: regEmailinp.value,
-        gender: selectGender.value,
-        phone: phoneinp.value,
-        address: addressinp.value,
-        password: passinp.value
-    };
-    id++;
-    // Get existing users or initialize empty array
-    const users = JSON.parse(localStorage.getItem('users') || '[]');
-    users.push(user);
-    localStorage.setItem('users', JSON.stringify(users));
+        // Get existing users from localStorage
+        let users = JSON.parse(localStorage.getItem('users')) || [];
 
-    alert('Sign up successful!');
-    frm.reset();
-    console.log('Sign up data:', user);
+        // Generate new ID
+        var newId = 0;
 
-    // Add your registration logic here
-    alert('Sign up successful!');
-});
+        // Collect form data
+        const user = {
+            ID: newId,
+            firstName: fnameinp.value,
+            lastName: snameinp.value,
+            email: regEmailinp.value,
+            gender: selectGender.value,
+            phone: phoneinp.value,
+            address: addressinp.value,
+            password: passinp.value
+        };
+        newId++;
+        // Add new user to array
+        users.push(user);
+
+        // Save back to localStorage
+        localStorage.setItem('users', JSON.stringify(users));
+
+        alert('Sign up successful!');
+
+        window.location.href = '../Login/login.html';
+
+        // Clear form
+        frm.reset();
+    });
 
 })
 

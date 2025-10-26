@@ -1,14 +1,14 @@
-const cUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
+let cUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
 const uname = cUser.firstName || 'Guest';
-console.log(uname);
-
 document.addEventListener('DOMContentLoaded', function () {
     // Setup hamburger menu
     createNav();
     setupHamburgerMenu();
     createFooter();
+    
+    
 });
-
+console.log(uname);
 //create NavBar
 function createNav() {
     const nav = document.querySelector('nav');
@@ -25,12 +25,12 @@ function createNav() {
             <span></span>
             </div>
             <ul class="nav-menu" id="nav-menu">
-            <li><a href="./home.html">Home</a></li>
+            <li><a href="../Home/home.html">Home</a></li>
             <li><a href="../About/about.html">About</a></li>
             <li><a href="#menu">products</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="../cart/cart.html">Cart (0)</a></li>
-            <li><a href="#service">Customer Service</a></li>
+            <li><a href="../Contact Us/index.html">Contact</a></li>
+            <li><a href="../cart/cart.html">Cart</a></li>
+            <li><a href="../Fav/favourite.html">Fav</a></li>
             <li><a href="./../Profile/profile.html">Hi, ${uname}</a></li>
             </ul>
         </div>`

@@ -9,7 +9,9 @@
 *{
   margin: 0;
 }
-
+body{
+  min-height: 100vh;
+}
 @media (max-width: 600px) {
   .main-header {
     flex-direction: column;
