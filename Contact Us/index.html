@@ -1,84 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="../Nav & Footer/style.css">
 
 </head>
+
 <body>
-     <div class="menu">
-        <ul>
-            <li class="title"><h2>Shop</h2></li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-house"></i>
-                    <p>home</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <p>order</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <p>location</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-solid fa-gear"></i>
-                    <p>setting</p>
-                </a>
-            </li>
-        </ul>
-    </div> 
+    
+    <nav>
 
-    <!-- ------------------------------------------------------------------------ -->
-
+</nav>
     <div class="content">
         <div class="title-info">
             <p class="title-content">Contact</p>
-            <button id="mode-toggle">
-                <i class="fa-solid fa-moon"></i>
-            </button>
             <div class="container">
                 <div class="form-content">
-                    <form action="">
+                    <form id="contactForm">
                         <label for="" class="lable-form">Name</label>
-                        <input type="text" class="lable-input">
+                        <input type="text" class="lable-input" id="nameInput" required />
+
                         <label for="" class="lable-form">Email</label>
-                        <input type="email"class="lable-input">
+                        <input type="email" class="lable-input" id="emailInput" required />
+
                         <label for="" class="lable-form">Message</label>
-                        <input type="text" class="lable-input ">
-                        <input type="submit" class="submit">
+                        <input type="text" class="lable-input" id="messageInput" required />
+
+                        <input type="submit" class="submit" value="Send" />
                     </form>
                 </div>
+
                 <div class="contact-info">
                     <ul>
                         <li class="contact-info-list">
-                            <p class="contact-info-list-title">Contat Info</p>
+                            <p class="contact-info-list-title">Contact Info</p>
                         </li>
                         <li class="contact-info-list">
-                            <p> <i class="fa-solid fa-location-dot"></i> +1234567890</p>
+                            <p><i class="fa-solid fa-phone"></i> +1234567890</p>
                         </li>
                         <li class="contact-info-list">
-                            <p> <i class="fa-solid fa-location-dot"></i> exampple.com</p>
+                            <p><i class="fa-solid fa-globe"></i> example.com</p>
                         </li>
                         <li class="contact-info-list">
-                            <p> <i class="fa-solid fa-location-dot"></i> 1234 street Name city,state,12345</p>
+                            <p>
+                                <i class="fa-solid fa-location-dot"></i> 1234 Street Name, City,
+                                State
+                            </p>
                         </li>
                     </ul>
-                    
                 </div>
             </div>
         </div>
     </div>
+    <footer>
+
+</footer>
+
+    
     <script src="./index.js"></script>
+    <script src="../Nav & Footer/main.js"></script>
+
 </body>
+
 </html>

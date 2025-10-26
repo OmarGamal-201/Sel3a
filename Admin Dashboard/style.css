@@ -73,12 +73,7 @@ td:hover {
     background-color: #ffffff55;
 }
 
-.log-out {
-    position: absolute;
-    bottom: 0;
-    width: 95%;
-        background-color: #e8ebe9;
-}
+
 
 ul li a i {
     font-size: 35px;
@@ -198,117 +193,8 @@ th {
 }
 
 i {
-   font-size: 30px;
+   font-size: 28px;
 }
-
-
-#mode-toggle {
-    background: linear-gradient(135deg, #00b894, #0984e3);
-    border: none;
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    color: white;
-    font-size: 18px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
-
-#mode-toggle:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
-
-
-body.dark-mode {
-    background-color: #181818;
-    transition:  0.4s ease, color 0.4s ease;
-}
-
-body.dark-mode .card,
-body.dark-mode section,
-body.dark-mode .title-info,
-body.dark-mode .content,
-body.dark-mode .box {
-    background-color: #222;
-    color: #fff;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* الأزرار */
-body.dark-mode button,
-body.dark-mode .btn {
-    background-color: #2c2c2c;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: 0.3s;
-}
-
-body.dark-mode button:hover,
-body.dark-mode .btn:hover {
-    background-color: #3a3a3a;
-}
-
-
-
-body.dark-mode table tr:nth-child(even),body.dark-mode tr td{
-    background-color: #252525;
-    border-bottom: #000;
-}
-
-body.dark-mode * {
-    color: white;
-}
-
-body.dark-mode a {
-    color: #eee;
-}
-
-body.dark-mode a:hover {
-    color: #eee;
-}
-body.dark-mode .menu {
-    background-color: #121212;
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-body.dark-mode .menu ul li a {
-    color: #e0e0e0;
-    transition: 0.3s;
-}
-
-body.dark-mode .menu ul li a:hover,
-body.dark-mode .menu ul li a.active {
-    background-color: #1f1f1f;
-}
-
-
-body.dark-mode .menu h2 {
-    color: #f1f1f1;
-}
-
-body.dark-mode .table-container {
-    background-color: #1a1a1a;
-    border-radius: 10px;
-    padding: 15px;
-    box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-}
-
-
-body.dark-mode table th {
-    background-color: #242424;
-    color: #eee;
-}
-
-
-body.dark-mode table td {
-    border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
 
 body table i {
     
@@ -354,33 +240,13 @@ body table i:hover {
 }
 
 
-body.dark-mode .search-box input {
-    background-color: #1e1e1e;
-    border: 2px solid #00ff80;
-    color: #fff;
-}
-
-body.dark-mode .search-box input:focus {
-    border-color: #00ff99;
-    box-shadow: 0 0 10px #00ff80;
-    background-color: #252525;
-}
-
 body:not(.dark-mode) .search-box input {
     background-color: #ffffff;
     border: 2px solid #00ccff;
     color: #000;
 }
 
-body:not(.dark-mode) .search-box input:focus {
-    border-color: #00e1ff;
-    box-shadow: 0 0 10px #00e1ff;
-    background-color: #f0faff;
-}
 
-body:not(.dark-mode) .search-box input::placeholder {
-    color: #555;
-}
 
 .highlight {
 background-color: #c9c0c0;
@@ -547,29 +413,80 @@ background-color: #c9c0c0;
     transition: 0.2s;
 }
 
-#saveEdit {
-    background-color: #00ffff;
-    color: #000;
-}
-
-#saveEdit:hover {
-    background-color: #00cccc;
-}
-
-#cancelEdit {
-    background-color: #444;
-    color: #fff;
-}
-
-#cancelEdit:hover {
-    background-color: #666;
-}
-#addProductBtn {
+.btn {
   width: 80px;
   height: 40px;
     background-color: #00ffff;
     border-radius: 80px;
     cursor: pointer;
-}
+} 
 
 
+
+
+ #messagesModal {
+     display: none;
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: rgba(0, 0, 0, 0.6);
+     justify-content: center;
+     align-items: center;
+     z-index: 2000;
+ }
+
+ .messages-box {
+     background-color: #111;
+     color: white;
+     padding: 20px 30px;
+     border-radius: 20px;
+     width: 400px;
+     max-height: 70vh;
+     overflow-y: auto;
+     box-shadow: 0 0 25px #00eaff;
+     text-align: center;
+     animation: fadeIn 0.3s ease-in-out;
+ }
+
+ .messages-box h2 {
+     color: #00eaff;
+     margin-bottom: 15px;
+ }
+
+ .message-item {
+     background: #222;
+     margin-bottom: 10px;
+     border-radius: 10px;
+     padding: 10px;
+     text-align: left;
+ }
+
+ .message-item p {
+     margin: 4px 0;
+     font-size: 14px;
+ }
+
+ #closeMessages {
+     background: white;
+     color: black;
+     border: none;
+     padding: 8px 18px;
+     border-radius: 8px;
+     margin-top: 10px;
+     cursor: pointer;
+     font-weight: bold;
+ }
+
+ @keyframes fadeIn {
+     from {
+         opacity: 0;
+         transform: scale(0.9);
+     }
+
+     to {
+         opacity: 1;
+         transform: scale(1);
+     }
+ }

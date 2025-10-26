@@ -1,20 +1,22 @@
-// 🌙 تبديل الوضع الليلي
-const modeToggle = document.getElementById("mode-toggle");
-const body = document.body;
+const form = document.querySelector("form");
 
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark-mode");
-  modeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-}
+form.addEventListener("submit", (e) => {
+  e.preventDefault();
 
-modeToggle.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
+  const name = form.querySelectorAll(".lable-input")[0].value.trim();
+  const email = form.querySelectorAll(".lable-input")[1].value.trim();
+  const message = form.querySelectorAll(".lable-input")[2].value.trim();
 
-  if (body.classList.contains("dark-mode")) {
-    modeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-    localStorage.setItem("theme", "dark");
-  } else {
-    modeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-    localStorage.setItem("theme", "light");
-  }
+  const messages = JSON.parse(localStorage.getItem("messages")) || [];
+
+  messages.push({
+    name,
+    email,
+    message,
+    date: new Date().toLocaleString(),
+  });
+
+  localStorage.setItem("messages", JSON.stringify(messages));
+  alert("✅ تم إرسال الرسالة بنجاح!");
+  form.reset();
 });

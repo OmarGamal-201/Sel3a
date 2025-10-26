@@ -5,8 +5,23 @@ document.addEventListener('DOMContentLoaded', function () {
     createNav();
     setupHamburgerMenu();
     createFooter();
-    
-    
+    let loc = document.location.pathname;
+    console.log(loc);
+    if (loc.includes('Login/login.html') || loc.includes('Signup/signup.html')) {
+        let pf = document.querySelector('.prf');
+        if (pf) pf.style.display = 'none';  // make sure element exists
+        const navLinks = document.querySelectorAll('nav ul li a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+            });
+        });
+    }
+    var dash = document.querySelector('.dsh');
+    if (dash) dash.style.display = 'none';
+    if (cUser.email === 'admin@admin') {
+        if (dash) dash.style.display = 'block';
+    }
 });
 console.log(uname);
 //create NavBar
@@ -27,11 +42,12 @@ function createNav() {
             <ul class="nav-menu" id="nav-menu">
             <li><a href="../Home/home.html">Home</a></li>
             <li><a href="../About/about.html">About</a></li>
-            <li><a href="#menu">products</a></li>
+            <li><a href="../Products/product.html">products</a></li>
             <li><a href="../Contact Us/index.html">Contact</a></li>
             <li><a href="../cart/cart.html">Cart</a></li>
             <li><a href="../Fav/favourite.html">Fav</a></li>
-            <li><a href="./../Profile/profile.html">Hi, ${uname}</a></li>
+            <li class="dsh"><a href="./../Admin Dashboard/index.html">DashBoard</a></li>
+            <li class="prf"><a href="./../Profile/profile.html">Hi, ${uname}</a></li>
             </ul>
         </div>`
 }

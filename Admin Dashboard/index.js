@@ -1,22 +1,3 @@
-// ------------------- تبديل الوضع الليلي -------------------
-const modeToggle = document.getElementById("mode-toggle");
-const body = document.body;
-
-if (localStorage.getItem("theme") === "dark") {
-  body.classList.add("dark-mode");
-  modeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-}
-
-modeToggle.addEventListener("click", () => {
-  body.classList.toggle("dark-mode");
-  if (body.classList.contains("dark-mode")) {
-    modeToggle.innerHTML = '<i class="fa-solid fa-sun"></i>';
-    localStorage.setItem("theme", "dark");
-  } else {
-    modeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
-    localStorage.setItem("theme", "light");
-  }
-});
 
 // ------------------- البحث في المنتجات -------------------
 const searchInput = document.getElementById("searchInput");
@@ -37,19 +18,9 @@ searchInput.addEventListener("input", () => {
   });
 });
 
-// ------------------- البيانات والجدول -------------------
-let products = JSON.parse(localStorage.getItem("products")) || [
-  {
-    name: "name Price",
-    price: "$999",
-    image: "./image/81e77237f75c438083efe1b19b9084d2.jpg",
-  },
-  {
-    name: "name Price",
-    price: "$999",
-    image: "./image/81e77237f75c438083efe1b19b9084d2.jpg",
-  },
-];
+// ------------------- البيانات والجدول -------------------const tableBody = document.querySelector("tbody"); // أو حسب اسم الجدول عندك
+
+let products = [];
 
 function renderTable() {
   tableBody.innerHTML = "";
@@ -65,11 +36,19 @@ function renderTable() {
   });
 }
 
+//  تحميل البيانات من ملف JSON
+fetch("./data.json")
+  .then((res) => res.json())
+  .then((data) => {
+    products = data;
+    saveProducts(); // تخزنها في localStorage لو عايز
+    renderTable(); // تعرضها في الجدول
+  })
+  .catch((error) => console.error("حدث خطأ أثناء تحميل البيانات:", error));
+
 function saveProducts() {
   localStorage.setItem("products", JSON.stringify(products));
 }
-
-renderTable();
 
 // ------------------- مودال التعديل -------------------
 const editModal = document.getElementById("editModal");
@@ -120,41 +99,7 @@ saveEdit.addEventListener("click", () => {
 cancelEdit.addEventListener("click", () => {
   editModal.style.display = "none";
 });
-
-// ------------------- مودال الإضافة -------------------
-const addProductBtn = document.getElementById("addProductBtn");
-const addModal = document.getElementById("addModal");
-const addName = document.getElementById("addName");
-const addPrice = document.getElementById("addPrice");
-const addImage = document.getElementById("addImage");
-const saveAdd = document.getElementById("saveAdd");
-const cancelAdd = document.getElementById("cancelAdd");
-
-addProductBtn.addEventListener("click", () => {
-  addModal.style.display = "flex";
-  addName.value = "";
-  addPrice.value = "";
-  addImage.value = "";
-});
-
-saveAdd.addEventListener("click", () => {
-  const newProduct = {
-    name: addName.value.trim() || "بدون اسم",
-    price: addPrice.value.trim() || "$0",
-    image:
-      addImage.value.trim() || "./image/81e77237f75c438083efe1b19b9084d2.jpg",
-  };
-  products.push(newProduct);
-  saveProducts();
-  renderTable();
-  addModal.style.display = "none";
-});
-
-cancelAdd.addEventListener("click", () => {
-  addModal.style.display = "none";
-});
-
-// ------------------- القائمة الجانبية -------------------
+// // ------------------- القائمة الجانبية -------------------
 const menuToggle = document.getElementById("menu-toggle");
 const menu = document.querySelector(".menu");
 
@@ -181,3 +126,73 @@ if (signInBtn) {
     localStorage.setItem("userCount", userCount);
   });
 }
+
+// -------------------------------------------------------------
+
+const signInBtn2 = document.querySelector(".btn");
+const userCountCount2 = document.querySelector(".count2");
+let userCount2 = parseInt(localStorage.getItem("userCount2")) || 0;
+userCountCount2.textContent = userCount2;
+
+if (signInBtn2) {
+  signInBtn2.addEventListener("click", () => {
+    userCount2++;
+    userCountCount2.textContent = userCount2;
+    localStorage.setItem("userCount2", userCount2);
+  });
+}
+
+////////////////////عرض رقم المنتجات
+
+const countSpan3 = document.querySelector(".count3");
+
+// تحميل البيانات من ملف JSON
+fetch("./data.json")
+  .then((res) => res.json())
+  .then((data) => {
+    // ✅ تحديث العدد في الكارت
+    countSpan3.textContent = data.length;
+  })
+  .catch((error) => console.error("حدث خطأ أثناء تحميل البيانات:", error));
+
+// ------------------- عرض الرسائل في Dashboard -------------------
+const showMessagesBtn = document.getElementById("showMessages");
+const messagesModal = document.getElementById("messagesModal");
+const messagesList = document.getElementById("messagesList");
+const closeMessages = document.getElementById("closeMessages");
+
+if (showMessagesBtn) {
+  showMessagesBtn.addEventListener("click", () => {
+    const messages = JSON.parse(localStorage.getItem("messages")) || [];
+    // messagesList.innerHTML = "";
+
+    if (messages.length === 0) {
+      messagesList.innerHTML = "<p>📭 لا توجد رسائل بعد</p>";
+    } else {
+      messages.forEach((msg) => {
+        const div = document.createElement("div");
+        div.classList.add("message-item");
+        div.innerHTML = `
+          <p><strong>👤 الاسم:</strong> ${msg.name}</p>
+          <p><strong>📧 الإيميل:</strong> ${msg.email}</p>
+          <p><strong>💬 الرسالة:</strong> ${msg.message}</p>
+          <p><small>${msg.date}</small></p>
+          <hr>
+        `;
+        messagesList.appendChild(div);
+      });
+    }
+
+    messagesModal.style.display = "flex";
+  });
+}
+
+if (closeMessages) {
+  closeMessages.addEventListener("click", () => {
+    messagesModal.style.display = "none";
+  });
+}
+const cUser = JSON.parse(localStorage.getItem('currentUser')) || [];
+let uname = cUser.firstName;
+let usrn = document.querySelector('.unm');
+usrn.innerHTML = uname;

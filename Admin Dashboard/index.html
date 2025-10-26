@@ -20,24 +20,12 @@
                 <div class="img-box">
                     <img src="./image/OIP.webp" alt="profile">
                 </div>
-                <h2>name profile</h2>
+                <h2 class="unm"></h2>
             </li>
-            <li><a href="#" class="active"><i class="fas fa-home"></i>
-                    <p>dashboard</p>
+            <li><a href="../Home/home.html" class="active"><i class="fas fa-home"></i>
+                    <p>Home</p>
                 </a></li>
-            <li><a href="#"><i class="fa-solid fa-box"></i>
-                    <p>products</p>
-                </a></li>
-            <li><a href="#"><i class="fa-solid fa-basket-shopping"></i>
-                    <p>Orders</p>
-                </a></li>
-            <li><a href="#"><i class="fa-solid fa-user"></i>
-                    <p>Users</p>
-                </a></li>
-            <li><a href="#"><i class="fas fa-cog"></i>
-                    <p>setting</p>
-                </a></li>
-            <li><a href="#" class="log-out"><i class="fas fa-sign-out"></i>
+            <li><a href="../Login/login.html" class="log-out"><i class="fas fa-sign-out"></i>
                     <p>Log Out</p>
                 </a></li>
         </ul>
@@ -46,18 +34,19 @@
     <div class="content">
         <div class="title-info">
             <p class="title-info-p">dashboard</p>
-            <button id="mode-toggle">
-                <i class="fa-solid fa-moon"></i>
-            </button>
+            
             <div class="data-info">
-                <div class="box"><i class="fa-solid fa-box"></i>
+                <div class="box">
+                    <i class="fa-solid fa-box"></i>
                     <div class="data">
-                        <p>Products</p><span>100</span>
+                        <p>Products</p>
+                        <span class="count3">0</span>
                     </div>
                 </div>
+
                 <div class="box"><i class="fa-solid fa-basket-shopping"></i>
                     <div class="data">
-                        <p>Orders</p><span>100</span>
+                        <p>Orders</p><span  class="count2">0</span>
                     </div>
                 </div>
                 <div class="box"><i class="fa-solid fa-user"></i>
@@ -65,13 +54,11 @@
                         <p class="sign-in">Users</p><span class="count">0</span>
                     </div>
                 </div>
-                <div class="box"><i class="fa-solid fa-chart-column"></i>
-                    <div class="data">
-                        <p>Revenue</p><span>100</span>
-                    </div>
-                </div>
             </div>
-            <button id="addProductBtn">إضافة منتج جديد</button>
+            <div class="show-messages">
+                <button id="showMessages" class="btn">📬 عرض الرسائل</button>
+            </div>
+
         </div>
 
         <div class="table-container">
@@ -108,23 +95,13 @@
             </div>
         </div>
     </div>
-
-    <!-- مودال الإضافة -->
-    <div id="addModal" class="modal">
-        <div class="modal-content">
-            <h2>إضافة منتج جديد</h2>
-            <label>اسم المنتج</label>
-            <input type="text" id="addName" placeholder="اكتب اسم المنتج" />
-            <label>السعر</label>
-            <input type="text" id="addPrice" placeholder="اكتب السعر" />
-            <label>رابط الصورة</label>
-            <input type="text" id="addImage" placeholder="رابط الصورة" />
-            <div class="buttons">
-                <button id="saveAdd">إضافة</button>
-                <button id="cancelAdd">إلغاء</button>
-            </div>
-        </div>
+<div id="messagesModal">
+    <div class="messages-box">
+        <h2>📬 الرسائل المستلمة</h2>
+        <div id="messagesList"></div>
+        <button id="closeMessages">إغلاق</button>
     </div>
+</div>
 
     <script src="./index.js"></script>
 </body>

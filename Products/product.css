@@ -1,0 +1,237 @@
+/* ✅ إصلاح عرض المنتجات من JavaScript */
+#product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 20px 30px;
+  width: 100%;
+}
+
+#product-list .item-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+#product-list .item-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+#product-list .item-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+#product-list .item-info h3 {
+  font-size: 20px;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+#product-list .item-info p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+#product-list .item-info button {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#product-list .checkout-single-btn {
+  background-color: #0077cc;
+  color: #fff;
+}
+
+#product-list .checkout-single-btn:hover {
+  background-color: #005fa3;
+}
+
+#product-list .add-cart-btn {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+#product-list .add-cart-btn:hover {
+  background-color: #e0e0e0;
+}
+
+#product-list .remove-fav-btn {
+  background-color: #ffecec;
+  color: #d33;
+}
+
+#product-list .remove-fav-btn:hover {
+  background-color: #ffcccc;
+}
+
+/* ✅ رسائل التأكيد */
+.toast-message {
+  position: fixed;
+  top: 100px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  animation: slideIn 0.3s ease;
+}
+
+
+@keyframes slideIn {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+/* ✅ تنسيق شريط التنقل */
+nav {
+  background-color: var(--dark-text);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  padding: 0 20px;
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li a {
+  color: var(--light-text);
+  text-decoration: none;
+  padding: 20px 15px;
+  display: block;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+nav ul li a:hover {
+  background-color: #36d4e9;
+  color: var(--dark-text);
+}
+
+/* ✅ اللوجو */
+.logo-section {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 50px;
+  height: 50px;
+  margin-right: 15px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+}
+
+.logo-text {
+  color: var(--light-bg);
+  font-size: 1.8rem;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/*  عداد العربة */
+.cart-count {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+/*  خلفية الصفحة */
+body {
+  background-color: var(--light-bg);
+  color: #333;
+}
+footer {
+  background-color: #800020;
+  color: #fff;
+  padding: 30px 20px;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  margin-top: 50px;
+}
+
+.footer-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.footer-logo-img {
+  background-color: #fff;
+  color: #800020;
+  font-weight: bold;
+  font-size: 24px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-logo h3 {
+  font-size: 22px;
+  margin: 0;
+  color: #fff;
+}
+
+.social-links {
+  margin: 15px 0;
+}
+
+.social-links a {
+  color: #fff;
+  margin: 0 10px;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #ffd700;
+}
+
+.copyright {
+  font-size: 14px;
+  margin-top: 10px;
+  opacity: 0.8;
+}
