@@ -1,0 +1,326 @@
+/* Carousel Section */
+.carousel-section {
+    width: 100%;
+    margin: 20px 0;
+    padding: 0 20px;
+}
+
+#mainCarousel {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-item {
+    height: 500px;
+    position: relative;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.carousel-caption {
+    background: transparent;
+    border-radius: 0;
+    padding: 0;
+    bottom: auto;
+    left: 10%;
+    right: auto;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: left;
+    width: 30%;
+}
+
+.carousel-caption h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: var(--light-text);
+    font-family: 'Playfair Display', serif;
+    /* إزالة الظل تماماً */
+    text-shadow: none;
+}
+
+.carousel-caption p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    color: var(--light-text);
+    /* إزالة الظل تماماً */
+    text-shadow: none;
+    line-height: 1.6;
+}
+
+.btn-shop-now {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    border-radius: 30px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-shop-now:hover {
+    background-color: #2bb8cc;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color: white;
+}
+
+.carousel-control-prev, 
+.carousel-control-next {
+    width: 5%;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+    margin: 0 10px;
+}
+
+/* مؤشرات الشريحة في المنتصف */
+.carousel-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.carousel-indicators button {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.5);
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.carousel-indicators button.active {
+    background-color: var(--primary);
+    border-color: var(--light-text);
+    transform: scale(1.2);
+}
+
+.carousel-indicators button:hover {
+    background-color: var(--primary);
+}
+
+/* Responsive Design for Carousel */
+@media (max-width: 1200px) {
+    .carousel-caption {
+        width: 50%;
+        left: 8%;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 2.2rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 992px) {
+    .carousel-item {
+        height: 450px;
+    }
+    
+    .carousel-caption {
+        width: 55%;
+        left: 5%;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 2rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 1.1rem;
+    }
+    
+    .btn-shop-now {
+        padding: 12px 30px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carousel-section {
+        padding: 0 15px;
+        margin: 15px 0;
+    }
+    
+    .carousel-item {
+        height: 400px;
+    }
+    
+    .carousel-caption {
+        width: 70%;
+        left: 5%;
+        top: 45%;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+    }
+    
+    .carousel-caption p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+    }
+    
+    .btn-shop-now {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+    }
+    
+    .carousel-indicators {
+        bottom: 20px;
+    }
+    
+    .carousel-indicators button {
+        width: 12px;
+        height: 12px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-item {
+        height: 350px;
+    }
+    
+    .carousel-caption {
+        width: 85%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.9rem;
+        margin-bottom: 15px;
+    }
+    
+    .btn-shop-now {
+        padding: 8px 20px;
+        font-size: 0.85rem;
+    }
+    
+    .carousel-section {
+        padding: 0 10px;
+    }
+    
+    .carousel-indicators {
+        bottom: 15px;
+    }
+    
+    .carousel-indicators button {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    .carousel-item {
+        height: 300px;
+    }
+    
+    .carousel-caption h3 {
+        font-size: 1.3rem;
+    }
+    
+    .carousel-caption p {
+        font-size: 0.8rem;
+    }
+}
+
+/* Categories of The Month Styles */
+.container.py-5 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+}
+
+.row.text-center.pt-3 {
+    padding-top: 1rem !important;
+}
+
+.col-lg-6.m-auto {
+    margin: 0 auto !important;
+}
+
+.h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+.rounded-circle.img-fluid.border {
+    border-radius: 50% !important;
+    border: 1px solid #dee2e6 !important;
+    transition: transform 0.3s ease;
+}
+
+.rounded-circle.img-fluid.border:hover {
+    transform: scale(1.05);
+}
+
+.h5 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+    padding: 0.5rem 2rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .col-12.col-md-4.p-5.mt-3 {
+        padding: 2rem !important;
+    }
+    
+    .h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .col-12.col-md-4.p-5.mt-3 {
+        padding: 1.5rem !important;
+    }
+    
+    .h1 {
+        font-size: 1.75rem;
+    }
+}
