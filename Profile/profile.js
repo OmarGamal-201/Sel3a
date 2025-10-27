@@ -3,11 +3,43 @@ const menuToggle = document.getElementById("menu-toggle");
 const menu = document.getElementById("menu");
 menuToggle.addEventListener("click", () => {
   menu.classList.toggle("active");
+  let btn = document.getElementById("menu-toggle");
+  if (menu.classList.contains("active")) {
+    btn.style.backgroundColor = "white";
+  } else {
+    btn.style.backgroundColor = "#36D4E9";
+  }
 });
 
 // إضافة المنتجات للجدول
 document.addEventListener("DOMContentLoaded", () => {
 
+  var currentUser = JSON.parse(localStorage.getItem('currentUser')) || [];
+
+    // ===== Assume the last registered user is the "logged in" user =====
+    // var currentUser = users[users.length - 1];
+
+    if (currentUser) {
+        // ===== Update sidebar profile info =====
+        var sidebarName = document.querySelector('.menu .profile h2');
+        sidebarName.textContent = currentUser.firstName + ' ' + currentUser.lastName;
+
+        var proimg1 = document.getElementById('proimg1');
+        proimg1.src = './1.jpg'; // ممكن تحط رابط صورة المستخدم لو متاح
+
+        // ===== Update main card info =====
+        var cardName = document.querySelector('.cardleft h3');
+        cardName.textContent = currentUser.firstName + ' ' + currentUser.lastName;
+
+        var proimg2 = document.getElementById('proimg2');
+        proimg2.src = './1.jpg'; // نفس الصورة في الكارد
+
+        var emailDiv = document.querySelector('.cardcenter .email div:nth-child(2)');
+        emailDiv.textContent = currentUser.email;
+
+        var phoneDiv = document.querySelector('.cardcenter .phone div:nth-child(2)');
+        phoneDiv.textContent = currentUser.phone;
+    }
     const searchInput = document.getElementById("searchInput");
     var tableBody = document.querySelector("table tbody");
 
@@ -54,10 +86,10 @@ form.addEventListener("submit", (e) => {
     <td>$${price}</td>
   `;
 
-  let users = JSON.parse(localStorage.getItem("users")) || [];
-  let prod = { name: name, price: `$${price}` };
-  users.push(prod);
-  localStorage.setItem("users", JSON.stringify(users));
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+  let prod = {img: imageInput.files[0], name: name, price: `${price}` };
+  products.push(prod);
+  localStorage.setItem("products", JSON.stringify(products)); 
 
   tableBody.appendChild(newRow);
 
@@ -65,29 +97,34 @@ form.addEventListener("submit", (e) => {
   form.reset();
 });
 
-
 // تغيير صورة البروفايل
 const icon = document.querySelector(".fa-regular.fa-pen-to-square");
-const img1 = document.getElementById("proimg1");
-const img2 = document.getElementById("proimg2");
+const names = document.querySelectorAll("#name1 , #name2");
 icon.style.cursor = "pointer";
-const imgInput = document.createElement("input");
-imgInput.type = "file";
-imgInput.style.display = "none";
-document.body.appendChild(imgInput);
 
-icon.addEventListener("click", () => imgInput.click());
-
-imgInput.addEventListener("change", () => {
-  const file = imgInput.files[0];
-  if (file) {
-    const reader = new FileReader();
-    reader.onload = (e) => {
-        img1.src = e.target.result;
-        img2.src = e.target.result;
-    }
-    reader.readAsDataURL(file);
+icon.addEventListener("click", () => {
+  let newname = prompt("Enter new name:", names[0].textContent);
+  if (newname) {
+    names.forEach(name => name.textContent = newname.trim());
   }
 });
-});
+const profileImages = document.querySelectorAll("#proimg1, #proimg2");
 
+profileImages.forEach(img => {
+  img.addEventListener("click", () => {
+    const fileInput = document.createElement("input");
+    fileInput.type = "file";
+    fileInput.style.cursor = "pointer";
+    fileInput.accept = "image/*";
+    fileInput.click();
+
+    fileInput.addEventListener("change", (event) => {
+      const file = event.target.files[0];
+      if (file) {
+        const imageURL = URL.createObjectURL(file);
+        profileImages.forEach(el => el.src = imageURL);
+      }
+    });
+  });
+});
+});

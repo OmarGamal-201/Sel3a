@@ -220,7 +220,7 @@ document.addEventListener('DOMContentLoaded', function () {
     //////////////////////////////////////
 
     let submition = document.createElement('button');
-    submition.classList.add('btn', 'btn-primary', 'bt', 'w-100', 'mb-3', 'sign-in');
+    submition.classList.add('btn', 'btn-primary', 'bt', 'w-100', 'mb-3', 'sign-in','btn-order');
     submition.setAttribute('type', 'submit');
     submition.innerHTML = 'Sign Up';
     frm.appendChild(submition);

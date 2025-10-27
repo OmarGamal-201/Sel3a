@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const userData = JSON.parse(localStorage.getItem('users') || '[]');
-    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
+    const currentUser = JSON.parse(localStorage.getItem('currentUser')) || {};
     var ll = JSON.parse(localStorage.getItem('loggedIn')) || '0';
     localStorage.setItem('loggedIn', JSON.stringify(0));
     // Create form

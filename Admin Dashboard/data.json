@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Dior Sauvage",
+    "price": "$120",
+    "image": "./image/dior.jpg"
+  },
+  {
+    "name": "Bleu de Chanel",
+    "price": "$140",
+    "image": "./image/chanel.jpg"
+  },
+  {
+    "name": "Creed Aventus",
+    "price": "$250",
+    "image": "./image/creed.jpg"
+  },
+    {
+    "name": "Creed Aventus",
+    "price": "$250",
+    "image": "./image/creed.jpg"
+  },
+    {
+    "name": "Creed Aventus",
+    "price": "$250",
+    "image": "./image/creed.jpg"
+  }
+]

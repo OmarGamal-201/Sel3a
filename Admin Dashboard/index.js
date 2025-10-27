@@ -1,4 +1,3 @@
-
 // ------------------- البحث في المنتجات -------------------
 const searchInput = document.getElementById("searchInput");
 const tableBody = document.querySelector("tbody");
@@ -18,8 +17,7 @@ searchInput.addEventListener("input", () => {
   });
 });
 
-// ------------------- البيانات والجدول -------------------const tableBody = document.querySelector("tbody"); // أو حسب اسم الجدول عندك
-
+// ------------------- البيانات والجدول -------------------
 let products = [];
 
 function renderTable() {
@@ -41,14 +39,26 @@ fetch("./data.json")
   .then((res) => res.json())
   .then((data) => {
     products = data;
-    saveProducts(); // تخزنها في localStorage لو عايز
-    renderTable(); // تعرضها في الجدول
+    saveProducts();
+    renderTable();
+    updateProductCount(); // ✅ تحديث العدد بعد التحميل
   })
   .catch((error) => console.error("حدث خطأ أثناء تحميل البيانات:", error));
 
 function saveProducts() {
   localStorage.setItem("products", JSON.stringify(products));
 }
+
+// ------------------- تحديث عدد المنتجات -------------------
+const countSpan3 = document.querySelector(".count3");
+
+function updateProductCount() {
+  var storedProducts = JSON.parse(localStorage.getItem("products")) || [];
+  countSpan3.textContent = storedProducts.length;
+}
+
+// استدعاؤها أول ما الصفحة تفتح
+updateProductCount();
 
 // ------------------- مودال التعديل -------------------
 const editModal = document.getElementById("editModal");
@@ -70,6 +80,7 @@ tableBody.addEventListener("click", (e) => {
       products.splice(index, 1);
       saveProducts();
       renderTable();
+      updateProductCount(); // ✅ تحديث العدد بعد الحذف
     }
   }
 
@@ -93,13 +104,15 @@ saveEdit.addEventListener("click", () => {
   };
   saveProducts();
   renderTable();
+  updateProductCount(); // ✅ تحديث العدد بعد التعديل
   editModal.style.display = "none";
 });
 
 cancelEdit.addEventListener("click", () => {
   editModal.style.display = "none";
 });
-// // ------------------- القائمة الجانبية -------------------
+
+// ------------------- القائمة الجانبية -------------------
 const menuToggle = document.getElementById("menu-toggle");
 const menu = document.querySelector(".menu");
 
@@ -116,7 +129,8 @@ menuToggle.addEventListener("click", () => {
 // ------------------- عداد المستخدمين -------------------
 const signInBtn = document.getElementById("sign-in");
 const userCountCount = document.querySelector(".count");
-let userCount = parseInt(localStorage.getItem("userCount")) || 0;
+let users = JSON.parse(localStorage.getItem("users")) || 0;
+let userCount = users.length;
 userCountCount.textContent = userCount;
 
 if (signInBtn) {
@@ -128,8 +142,7 @@ if (signInBtn) {
 }
 
 // -------------------------------------------------------------
-
-const signInBtn2 = document.querySelector(".btn");
+const signInBtn2 = document.querySelector(".btn-order");
 const userCountCount2 = document.querySelector(".count2");
 let userCount2 = parseInt(localStorage.getItem("userCount2")) || 0;
 userCountCount2.textContent = userCount2;
@@ -142,19 +155,6 @@ if (signInBtn2) {
   });
 }
 
-////////////////////عرض رقم المنتجات
-
-const countSpan3 = document.querySelector(".count3");
-
-// تحميل البيانات من ملف JSON
-fetch("./data.json")
-  .then((res) => res.json())
-  .then((data) => {
-    // ✅ تحديث العدد في الكارت
-    countSpan3.textContent = data.length;
-  })
-  .catch((error) => console.error("حدث خطأ أثناء تحميل البيانات:", error));
-
 // ------------------- عرض الرسائل في Dashboard -------------------
 const showMessagesBtn = document.getElementById("showMessages");
 const messagesModal = document.getElementById("messagesModal");
@@ -164,7 +164,7 @@ const closeMessages = document.getElementById("closeMessages");
 if (showMessagesBtn) {
   showMessagesBtn.addEventListener("click", () => {
     const messages = JSON.parse(localStorage.getItem("messages")) || [];
-    // messagesList.innerHTML = "";
+    messagesList.innerHTML = "";
 
     if (messages.length === 0) {
       messagesList.innerHTML = "<p>📭 لا توجد رسائل بعد</p>";
@@ -191,8 +191,4 @@ if (closeMessages) {
   closeMessages.addEventListener("click", () => {
     messagesModal.style.display = "none";
   });
-}
-const cUser = JSON.parse(localStorage.getItem('currentUser')) || [];
-let uname = cUser.firstName;
-let usrn = document.querySelector('.unm');
-usrn.innerHTML = uname;
+};
