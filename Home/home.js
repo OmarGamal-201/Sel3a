@@ -14,20 +14,6 @@ document.addEventListener('DOMContentLoaded', function() {
     storeProducts();
     renderProducts();
     setupHamburgerMenu();
-
-    // إضافة event listeners لأزرار Add to Cart
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('add-to-cart')) {
-            const originalText = e.target.textContent;
-            e.target.textContent = 'Added';
-            e.target.style.backgroundColor = '#23b42fff';
-
-            setTimeout(() => {
-                e.target.textContent = originalText;
-                e.target.style.backgroundColor = '';
-            }, 1000);
-        }
-    });
 });
 
 
