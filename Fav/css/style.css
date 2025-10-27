@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: 'Cairo', sans-serif;
+  /* font-family: 'Cairo', sans-serif; */
   background-color: var(--light-bg);
   margin: 0;
   padding: 0;
