@@ -1,6 +1,7 @@
 let product = JSON.parse(localStorage.getItem('selectedProduct'));
 
 if (product) {
+    console.log(product);
     displayProduct(product);
     // Clean up
     // localStorage.removeItem('selectedProduct');
@@ -10,10 +11,10 @@ else {
 }
 function displayProduct(product) {
     let pimg = document.querySelector('.main-img');
-    pimg.src = product.imgsrc;
+    pimg.src = product.image;
     let pimgs = document.querySelectorAll('.img-thumbnail');
     pimgs.forEach(element => {
-        element.src = product.imgsrc;
+        element.src = product.image;
     });
     let pnm = document.querySelector('.pname');
     pnm.innerHTML = product.name;

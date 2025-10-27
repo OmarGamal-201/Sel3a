@@ -1,6 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
     const userData = JSON.parse(localStorage.getItem('users') || '[]');
     const currentUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
+    var ll = JSON.parse(localStorage.getItem('loggedIn')) || '0';
+    localStorage.setItem('loggedIn', JSON.stringify(0));
     // Create form
     let frm = createLoginForm();
     let frmTitle = addTitle('Log in');
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (idx !==-1 && isFound(idx, password)) {
             const cUser = userData[idx];
+            localStorage.setItem('loggedIn', JSON.stringify(1));
             localStorage.setItem('currentUser', JSON.stringify(cUser));
             // Redirect or success action here
             window.location.href = '../../Home/home.html';

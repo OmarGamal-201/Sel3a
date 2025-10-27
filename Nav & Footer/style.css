@@ -9,7 +9,7 @@
 
 /* Navigation */
 nav {
-    background-color: var(--dark-text);
+    background-color: var(--primary);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -96,8 +96,8 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #36d4e9;
-    color: #35424a;
+    background-color: var(--light-text);
+    color: var(--primary);
 }
 
 /* Footer */

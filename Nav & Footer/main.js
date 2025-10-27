@@ -1,13 +1,16 @@
-let cUser = JSON.parse(localStorage.getItem('currentUser') || '[]');
+let cUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
 const uname = cUser.firstName || 'Guest';
 document.addEventListener('DOMContentLoaded', function () {
     // Setup hamburger menu
+    setupLogout();
     createNav();
     setupHamburgerMenu();
     createFooter();
     let loc = document.location.pathname;
     console.log(loc);
     if (loc.includes('Login/login.html') || loc.includes('Signup/signup.html')) {
+        var logout = document.querySelector('.logout');
+        logout.style.display = 'none';
         let pf = document.querySelector('.prf');
         if (pf) pf.style.display = 'none';  // make sure element exists
         const navLinks = document.querySelectorAll('nav ul li a');
@@ -22,6 +25,9 @@ document.addEventListener('DOMContentLoaded', function () {
     if (cUser.email === 'admin@admin') {
         if (dash) dash.style.display = 'block';
     }
+    else dash.style.display = 'none';
+
+    
 });
 console.log(uname);
 //create NavBar
@@ -48,6 +54,7 @@ function createNav() {
             <li><a href="../Fav/favourite.html">Fav</a></li>
             <li class="dsh"><a href="./../Admin Dashboard/index.html">DashBoard</a></li>
             <li class="prf"><a href="./../Profile/profile.html">Hi, ${uname}</a></li>
+            <li class="logout"><a href="../Login/login.html">Log Out</a></li>
             </ul>
         </div>`
 }
@@ -84,6 +91,17 @@ function setupHamburgerMenu() {
                 navMenu.classList.remove('active');
                 hamburger.classList.remove('active');
             });
+        });
+    }
+}
+
+function setupLogout() {
+    const logoutLink = document.querySelector('.logout');
+    if (logoutLink) {
+        logoutLink.addEventListener('click', function (e) {
+            localStorage.removeItem('currentUser'); // clear saved user
+            e.preventDefault(); // stop normal link navigation
+            window.location.href = '../Login/login.html'; // redirect
         });
     }
 }

@@ -42,7 +42,6 @@
     font-weight: 700;
     color: var(--light-text);
     font-family: 'Playfair Display', serif;
-    /* إزالة الظل تماماً */
     text-shadow: none;
 }
 
@@ -50,7 +49,6 @@
     font-size: 1.3rem;
     margin-bottom: 30px;
     color: var(--light-text);
-    /* إزالة الظل تماماً */
     text-shadow: none;
     line-height: 1.6;
 }
