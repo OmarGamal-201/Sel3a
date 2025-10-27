@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // لو مفيش منتجات نعرض رسالة
   if (!products || products.length === 0) {
     console.log('Noooooooooooooooooooooooo');
-    container.innerHTML = "<p>لا توجد منتجات متاحة الآن.</p>";
+    container.innerHTML = "<p>No items.</p>";
     // return;
   }
 
@@ -117,7 +117,7 @@ function setupProductFunctionality() {
       localStorage.setItem("cart", JSON.stringify(cart));
 
       updateCartCount();
-      showToast("🛒 تمت إضافة المنتج إلى العربة");
+      showToast("product moved to cart");
     });
   });
 
@@ -139,13 +139,13 @@ function setupProductFunctionality() {
       if (index === -1) {
         favs.push({ name, price, image });
         localStorage.setItem("favorites", JSON.stringify(favs));
-        this.innerHTML = "❌ إزالة من المفضلة";
-        showToast("❤️ تمت إضافة المنتج إلى المفضلة");
+        this.innerHTML = "removed from cart   ";
+        showToast("product add to fav");
       } else {
         favs.splice(index, 1);
         localStorage.setItem("favorites", JSON.stringify(favs));
-        this.innerHTML = "❤️ إضافة للمفضلة";
-        showToast("❌ تمت إزالة المنتج من المفضلة");
+        this.innerHTML = "add to fav";
+        showToast("product remove from fav   ");
       }
 
       updateFavCount();
@@ -198,8 +198,8 @@ function createProductCard(product, index) {
     <div class="item-info">
       <h3>${product.name}</h3>
       <p>السعر: <strong>${product.price}</strong></p>
-      <button class="add-cart-btn">🛒 إضافة إلى العربة</button>
-      <button class="fav-toggle-btn">❤️ إضافة للمفضلة</button>
+      <button class="add-cart-btn">add to cart</button>
+      <button class="fav-toggle-btn">add to fav</button>
     </div>
   `;
 

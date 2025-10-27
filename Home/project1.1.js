@@ -127,7 +127,6 @@ function renderProducts() {
                 <h3 class="product-title">${product.name}</h3>
                 <p class="product-description">${product.description}</p>
                 <div class="product-price">$${product.price.toFixed(2)}</div>
-                <button class="add-to-cart" data-id="${product.id}">Add to Cart</button>
             </div>
         `;
 
@@ -143,20 +142,6 @@ document.addEventListener('DOMContentLoaded', function() {
     renderProducts();
     
     setupHamburgerMenu();
-
-    // إضافة event listeners لأزرار Add to Cart
-    document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('add-to-cart')) {
-            const originalText = e.target.textContent;
-            e.target.textContent = 'Added';
-            e.target.style.backgroundColor = '#23b42fff';
-
-            setTimeout(() => {
-                e.target.textContent = originalText;
-                e.target.style.backgroundColor = '';
-            }, 1000);
-        }
-    });
 });
 
 function setupHamburgerMenu() {
